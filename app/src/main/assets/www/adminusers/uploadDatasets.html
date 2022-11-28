@@ -1,0 +1,994 @@
+
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <meta content="width=device-width, initial-scale=1.0" name="viewport">
+      <title>NIUE Geoportal</title>
+      <meta content="" name="description">
+      <meta content="" name="keywords">
+      <!-- Favicons -->
+      <link href="../assets/img/favicon.png" rel="icon">
+      <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+      <!-- Google Fonts -->
+      <link href="https://fonts.gstatic.com" rel="preconnect">
+      <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+      <!-- Vendor CSS Files -->
+      <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+      <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+      <link href="../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+      <link href="../assets/vendor/quill/quill.snow.css" rel="stylesheet">
+      <link href="../assets/vendor/quill/quill.bubble.css" rel="stylesheet">
+      <link href="../assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+      <link href="../assets/vendor/simple-datatables/style.css" rel="stylesheet">
+      <!-- Template Main CSS File -->
+      <link href="../assets/css/style.css" rel="stylesheet">
+      <script src="../assets/js/jquery-3.4.1.min.js"></script>            
+   
+      <style>
+       
+         .col-form-label {
+         text-align: right;
+         }
+       
+         .nav-tabs .nav-link{
+          margin-bottom: 0px;
+          color: #0d6efd;
+          border-color: #0d6efd;
+          border: 1px solid #0d6efd;
+         }
+         .nav-link:focus, .nav-link:hover{
+          color: #fff;
+          background-color: #0d6efd;
+          border-color: #0d6efd;
+         }
+         .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+          color: #fff;
+          background-color: #0d6efd;
+          border-color: #0d6efd;
+         }
+		 #main, #footer{
+	margin-left: 0px;
+}
+      </style>
+   </head>
+   <body>
+      <!-- ======= Header ======= -->
+      <header id="header" class="header fixed-top d-flex align-items-center">
+        <nav class="navbar navbar-dark navbar-expand-lg w-100 bg-niueblue fixed-top d-flex align-items-center">
+          <div class="container-fluid">
+            <div class="d-flex align-items-center justify-content-between">
+            <a href="../index.html" class="logo d-flex align-items-center">
+              <img src="../assets/img/logo.png" alt="" class="bg-white me-3" style="border-radius: 4px;"/>
+              <span class="d-none d-lg-block">NIUE Geoportal</span>
+            </a>
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse header-nav" id="mynavbar">
+              <ul class="navbar-nav justify-content-end w-100">
+
+        <li class="nav-item">
+          <a class="nav-link nav-icon scrollto" href="../index.html">
+            <span class="me-1"><i class="bi bi-house-door"></i></span>
+            <span class="ps-1">Home</span>
+          </a><!-- End map Icon -->
+        </li>
+		<li class="nav-item">
+          <a class="nav-link nav-icon scrollto" href="../adminusers/AllusersListmode.html">
+            <span class="me-1"><i class="bi bi-search"></i></span>
+            <span class="ps-1">Search</span>
+          </a><!-- End map Icon -->
+        </li>
+		<li class="nav-item">
+          <a class="nav-link nav-icon" href="../map.html">
+            <span class="me-1"><i class="bi bi-globe2"></i></span>
+            <span class="ps-1">Map</span>
+          </a><!-- End map Icon -->
+        </li>
+		 <li class="nav-item dropdown">
+          <a class="nav-link nav-icon active" href="uploadDatasets.html" data-bs-toggle="dropdown">
+            <span class="me-1"><i class="bi bi-plus-lg"></i></span>
+            <span class="ps-1 dropdown-toggle">Contribute</span>
+          </a><!-- End contribute Icon -->
+            <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+           
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+             <li>
+              <a class="dropdown-item d-flex align-items-center" href="uploadDatasets.html">
+                <i class="bi bi-plus-lg"></i>
+                <span>Add Datasets</span>
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+             <li>
+              <a class="dropdown-item d-flex align-items-center" href="registerdepartmentuser.html">
+                <i class="bi bi-plus-lg"></i>
+                <span>Add Department Users</span>
+              </a>
+            </li>
+           </ul>
+     </li>
+        
+        
+		<li class="nav-item">
+          <a class="nav-link nav-icon" href="../index.html#about">
+            <span class="me-1"><i class="bi bi-info-circle"></i></span>
+            <span class="ps-1">About</span>
+          </a><!-- End map Icon -->
+        </li>
+        
+       
+
+        <li class="nav-item dropdown pe-3">
+
+          <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+           <!--  <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle"> -->
+             <span class="rounded-circle"><i class="bi bi-person-circle" style="font-size:20px;"></i></span>
+            <span class="d-md-block dropdown-toggle ps-2 showUserName"></span>
+          </a><!-- End Profile Iamge Icon -->
+
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+            <li class="dropdown-header">
+              <h6 class="showUserName"></h6>
+              <span><p class="ps-1 mb-0"><span id="roleLabel"></span></p></span>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="#">
+                <i class="bi bi-question-circle"></i>
+                <span>Need Help?</span>
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="#">
+                <i class="bi bi-box-arrow-right"></i>
+                <span><div id="logoutbutton" onClick="logout()";>Logout</div></span>
+              </a>
+            </li>
+
+          </ul><!-- End Profile Dropdown Items -->
+        </li><!-- End Profile Nav -->
+
+      </ul>
+      </div>
+      </div>
+    </nav><!-- End Icons Navigation -->
+      </header>
+      <!-- End Header -->
+    
+<div id="main" class="main">
+ <section class="section dashboard">
+  <div class="row">
+    <div class="col-12 col-md-1">&nbsp;</div>
+      <div class="col-12 col-md-3">
+        <div class="card h-100">
+            <div class="card-header"><h5 class="m-0 card-title p-2 fs-4">Upload</h5></div>
+            <div class="card-body">
+              <div class="btn-group-vertical d-flex justify-content-center mt-4 nav nav-tabs">
+                  <a class="btn btn-outline-primary nav-link active" data-bs-toggle="tab" href="#upload" style="padding:15px; font-size:22px;" title="Pdf, Xls, Doc, Docx, PNG, Jpg, Mp4"><i class="bi bi-file-arrow-up-fill" style="font-size:50px;"></i><p>	Documents &amp; Media</p></a>
+                  <a class="btn btn-outline-primary nav-link" data-bs-toggle="tab" href="#dataset" style="padding:15px; font-size:22px;"><i class="bi bi-file-earmark-bar-graph-fill" style="font-size:50px;"></i><br/>	Spatial Dataset</a>
+              </div>
+            </div>
+        </div>
+      </div> 
+    <div class="col-12 col-md-7">
+      <div class="tab-content">
+        <div class="tab-pane active" id="upload">
+          <div class="card h-100 mb-0">
+            <div class="card-body">
+              <div class="py-2">
+                <h5 class="card-title text-center pb-0 fs-4">Upload Documents &amp; Media</h5>
+              </div>
+              <div class="row g-3">
+                <div class="col-12 col-md-12">
+                <div class="card mb-0">
+                  <div class="card-body pt-2">
+                <form method="POST" enctype="multipart/form-data" id="fileUploadForm">
+                <div class="col-12 mt-3">
+                  <label for="yourFilename" class="form-label">Browse file</label>
+                  <div class="input-group input-group-sm">
+                    
+                    <input type="file" name="files" class="form-control" id="yourFilename" accept="application/pdf,application/vnd.ms-excel,application/msword,image/png, image/gif, image/jpeg,video/mp4,video/x-m4v,video/*" required>
+                    
+                  </div>
+                </div> 
+                <div class="col-12 mt-3">
+                  <label for="yourFilename" class="form-label">Theme</label>
+                  <div class="input-group input-group-sm">                    
+                    <select id="themeName" class="form-control form-select" required>
+                      <option>--Select Theme--</option>
+                      <option>GeologyandSoils</option>
+                      <option>Geographical Names</option>
+                      <option>Addresses</option>
+                      <option>Functional Areas</option>
+                      <option>Buildings and Settlements</option>
+                      <option>Land Parcels</option>
+                      <option>Transport Networks</option>
+                      <option>Elevation and depth</option> 
+                      <option>Population distribution</option>
+                      <option>Land Cover and Use</option>
+                      <option>Physical Infrastructure</option>
+                      <option>Water</option>
+                      <option>Imagery</option>
+                      <option>Others</option>
+                    </select>
+                    
+                  </div>
+                </div> 
+                <div class="col-12 mt-3">
+                  <label for="yourFilename" class="form-label">Village </label>
+                  <div class="input-group input-group-sm">                    
+                    <select id="villageName" class="form-control form-select" required>
+                      <option>--Select Village--</option>
+                      <option>Village-1</option>
+                      <option>Village-2</option>
+                      <option>Village-3</option>
+                      <option>Village-4</option>
+                      <option>Village-5</option>
+                    </select>
+                    
+                  </div>
+                </div> 
+                <div class="col-12 mt-3">
+                  <label for="yourDescription" class="form-label">Description:</label>
+                  <div class="input-group input-group-sm">
+                  <textarea rows="5" id="Description" name="text" spellcheck="true" class="form-control" required></textarea>
+                    </div>
+                </div>
+                <div class="col-12 mx-auto text-center mt-3">
+                  <button type="button" class="btn btn-primary" style="width:150px;" onClick="uploadForm();">Upload</button>
+                </div>
+              </form>
+              </div>
+              </div>
+              </div>
+              
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="dataset">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="card h-100">
+                <div class="py-2">
+                  <h5 class="card-title text-center pb-0 fs-4">Spatial Dataset</h5>
+                </div>
+                <div class="card-body pt-0">
+
+              
+                  <div class="row">
+                    <div class="col-12 col-md-6">
+                      <div class="card">
+                        <div class="card-header">
+                          <h5 class="card-title p-0 m-0">Meta Data</h5>
+                        </div>
+                        <div class="card-body pt-2">
+                          <form class="row g-3">
+                            <div class="col-12">
+                              <label for="title" class="form-label lf"> Title </label>
+                              <div class="input-group input-group-sm">
+                                <span class="input-group-text" id="inputGroupPrepend"><i class="bi bi-card-heading"></i></span>
+                                <input type="text" maxlength="30"
+                                name="title" id="title" class="form-control noSpecialChar resetVal" data="Title"/>
+                              </div>
+                            </div>
+                            <!--<div class="col-12">
+                              <label for="date" class="form-label lf"> Date </label>
+                              <div class="input-group input-group-sm">
+                                <span class="input-group-text" id="inputGroupPrepend"><i class="bi bi-calendar3"></i></span>
+                                <input type="date"
+                                name="date" id="date" class="form-control resetVal" data="Date">
+                              </div>
+                            </div>-->
+                            <div class="col-12">
+                              <label for="abstractdata" class="form-label lf"> Abstract </label>
+                              <div class="input-group input-group-sm">
+                                <span class="input-group-text" id="inputGroupPrepend"><i class="bi bi-pencil-fill"></i></span>
+                                <textarea name="abstractdata" id="abstractdata" spellcheck="true"
+                                class="form-control noSpecialChar resetVal" placeholder="Enter abstract" maxlength="200" data="Abstract"></textarea>
+                              </div>
+                            </div>
+                            <!--<div class="col-12">
+                              <label for="purpose" class="form-label lf"> Purpose </label>
+                              <div class="input-group input-group-sm">
+                                <span class="input-group-text" id="inputGroupPrepend"><i class="bi bi-pencil-fill"></i></span>
+                                <textarea name="purpose" spellcheck="true" id="purpose" class="form-control noSpecialChar resetVal" placeholder="Enter purpose" maxlength="50"
+                                data="Purpose"></textarea>
+                              </div>
+                            </div>
+                            <div class="col-12">
+                              <label for="individualname" class="form-label lf"> Individual Name </label>
+                              <div class="input-group input-group-sm">
+                                <span class="input-group-text" id="inputGroupPrepend"><i class="bi bi-file-earmark-person"></i></span>
+                                <input type="text"
+                                name="individualname" id="individualname" class="form-control noSpecialChar resetVal" placeholder="Enter individual name" maxlength="20"
+                                data="Individual Name" />
+                              </div>
+                            </div>
+                            <div class="col-12">
+                              <label for="organizationname" class="form-label lf"> Organization Name </label>
+                              <div class="input-group input-group-sm">
+                                <span class="input-group-text" id="inputGroupPrepend"><i class="bi bi-bank"></i></span>
+                                <input type="text"
+                                name="organizationname" id="organizationname" placeholder="Enter Organization name" maxlength="20"
+                                class="form-control noSpecialChar resetVal" data="Organization Name" />
+                              </div>
+                            </div>
+                            <div class="col-12">
+                              <label for="positionname" class="form-label lf"> Position Name </label>
+                              <div class="input-group input-group-sm">
+                                <span class="input-group-text" id="inputGroupPrepend"><i class="bx bx-chair"></i></span>
+                                <input type="text" placeholder="Enter postion name" maxlength="20"
+                                name="positionname" id="positionname" class="form-control noSpecialChar resetVal"
+                                data="Position Name" />
+                              </div>
+                            </div>
+                            <div class="col-12">
+                              <label for="city" class="form-label lf"> City </label>
+                              <div class="input-group input-group-sm">
+                                <span class="input-group-text" id="inputGroupPrepend"><i class="bx bxs-city"></i></span>
+                                <input type="text" placeholder="Enter city name" maxlength="15"
+                                name="city" id="city" class="form-control noSpecialChar resetVal" data="City" />
+                              </div>
+                            </div>
+                            <div class="col-12">
+                              <label for="postalcode" class="form-label lf"> Postal Code </label>
+                              <div class="input-group input-group-sm">
+                                <span class="input-group-text" id="inputGroupPrepend"><i class="bi bi-signpost-2"></i></span>
+                                <input type="text" placeholder="Enter postal code" maxlength="25"
+                                name="postalcode" id="postalcode" class="form-control alphaNumeric-only resetVal"
+                                data="Postal Code" />
+                              </div>
+                            </div>
+                            <div class="col-12">
+                              <label for="country" class="form-label lf">Country </label>
+                              <div class="input-group input-group-sm">
+                                <span class="input-group-text" id="inputGroupPrepend"><i class="ri ri-road-map-line"></i></span>
+                                <input type="text" placeholder="Enter country name" maxlength="15"
+                                name="country" id="country" class="form-control noSpecialChar resetVal"
+                                data="Country" />
+                              </div>
+                            </div>
+                            <div class="col-12">
+                              <label for="email" class="form-label lf">Email </label>
+                              <div class="input-group input-group-sm">
+                                <span class="input-group-text" id="inputGroupPrepend"><i class="bi bi-envelope"></i></span>
+                                <input type="text" placeholder="Enter email id" maxlength="25"
+                                name="email" id="email" class="form-control resetVal" data="Email" />
+                              </div>
+                            </div>
+                            <div class="col-12">
+                              <label for="role" class="form-label lf">Role </label>
+                              <div class="input-group input-group-sm">
+                                <span class="input-group-text" id="inputGroupPrepend"><i class="bi bi-person-badge"></i></span>
+                                <select
+                                name="role" class="form-control sectionbg form-select" id="role"
+                                data="Role">
+                                <option value="author">Author</option>
+                                <option value="custodian">Custodian</option>
+                                <option value="distributor">Distributor</option>
+                                <option value="originator" selected="selected">Originator</option>
+                                <option value="owner">Owner</option>
+                                <option value="pointofcontact">Point of contact</option>
+                                <option value="principalinvestigato">Principal
+                                  investigator</option>
+                                <option value="processor">Processor</option>
+                                <option value="publisher">Publisher</option>
+                                <option value="resourceprovider">Resource provider</option>
+                                <option value="user">User</option>
+                              </select>
+                              </div>
+                            </div>
+                            <div class="col-12">
+                              <label for="maintainanceupdatefrequency" class="form-label lf">Maintainance & Update
+                                Frequency </label>
+                              <div class="input-group input-group-sm">
+                                <span class="input-group-text" id="inputGroupPrepend"><i class="bi bi-tools"></i></span>
+                                <select
+                                name="maintainanceupdatefrequency"
+                                class="form-control sectionbg form-select"
+                                id="maintainanceupdatefrequency"
+                                data="Maintainance & Update Frequency">
+                                <option value="annually">Annually</option>
+                                <option value="asneeded" selected="selected">As
+                                  needed</option>
+                                <option value="biannually">Biannually</option>
+                                <option value="continual">Continual</option>
+                                <option value="daily">Daily</option>
+                                <option value="fortnightly">Fortnightly</option>
+                                <option value="irregular">Irregular</option>
+                                <option value="monthly">Monthly</option>
+                                <option value="notplanned">Not planned</option>
+                                <option value="quarterly">Quarterly</option>
+                                <option value="unknown">Unknown</option>
+                                <option value="weekly">Weekly</option>
+                              </select>
+                              </div>
+                            </div>-->
+                            <div class="col-12">
+                              <label for="keyword1" class="form-label lf">Keyword1 </label>
+                              <div class="input-group input-group-sm">
+                                <span class="input-group-text" id="inputGroupPrepend"><i class="bi bi-blockquote-left"></i></span>
+                                <input type="text" placeholder="Enter keyword 1" maxlength="15"
+                                name="keyword1" id="keyword1" class="form-control noSpecialChar resetVal"
+                                data="Keyword1" />
+                            </div>
+                              </div>
+                            <div class="col-12">
+                              <label for="keyword2" class="form-label lf">Keyword2 </label>
+                              <div class="input-group input-group-sm">
+                                <span class="input-group-text" id="inputGroupPrepend"><i class="bi bi-blockquote-right"></i></span>
+                                <input type="text" placeholder="Enter keyword 2" maxlength="15"
+                                name="keyword2" id="keyword2" class="form-control noSpecialChar resetVal"
+                                data="Keyword2" />
+                              </div>
+                            </div>
+                            <!--<div class="col-12">
+                              <label for="protocol1" class="form-label lf">Protocol </label>
+                              <div class="input-group input-group-sm">
+                                <span class="input-group-text" id="inputGroupPrepend"><i class="bi bi-list-check"></i></span>
+                                <input type="text"
+                                name="protocol1" id="protocol1" class="form-control"
+                                value="OGC:WMS-1.3.0-http-get-map" disabled="disabled"
+                                data="Protocol" />
+                              </div>
+                            </div> -->
+                            <div class="col-12">
+                              <label for="description1" class="form-label lf">Description </label>
+                              <div class="input-group input-group-sm">
+                                <span class="input-group-text" id="inputGroupPrepend"><i class="bi bi-file-earmark-text"></i></span>
+                                <input type="text" placeholder="Enter description" maxlength="250"
+                                name="description1" id="description1" class="form-control noSpecialChar resetVal"
+                                data="Description" />
+                              </div>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                    </div>  
+                      <div class="col-12 col-md-6">
+                        <div class="card">
+                            <div class="card-header">
+                              <h5 class="card-title p-0 m-0">Publish Layer</h5></div>
+                            <div class="card-body pt-2">
+                              <form class="row g-3" method="POST" enctype="multipart/form-data" id="publishlayerform" name="publishlayerform">
+                                <div class="col-12">
+                                  <label for="selectworkspace" class="form-label lf"> Existing Workspace </label>
+                                  <div class="input-group input-group-sm" id="selectworkspacediv">
+                                    <span class="input-group-text" id="inputGroupPrepend"><i class="bi bi-columns"></i></span>
+                                    <select class="form-control sectionbg form-select" id="selectworkspace">
+                                      <option value="0">Select Workspace</option>
+                                    </select>
+                                  </div>
+                                </div>
+                                
+                                <div class="col-12">
+                                  <label for="workspaceName1" class="form-label lf"> Store Name </label>
+                                  <div class="input-group input-group-sm" id="storeNamediv">
+                                    <span class="input-group-text" id="inputGroupPrepend"><i class="bi bi-disc"></i></span>
+                                    <input 
+                                type="text" name="storeName" id="idstoreName" placeholder="Enter store name" maxlength="15"
+                                class="form-control noSpecialChar resetVal" data="Store Name">
+                                  </div>
+                                </div>
+                                <div class="col-12">
+                                  <label for="lbllayerName" class="form-label lf"> Layer Name </label>
+                                  <div class="input-group input-group-sm" id="layerNamediv">
+                                    <span class="input-group-text" id="inputGroupPrepend"><i class="bi bi-layers"></i></span>
+                                    <input
+                                    type="text" name="layerName" id="idlayerName" placeholder="Enter Layer name" maxlength="25"
+                                    class="form-control noSpecialChar resetVal" data="Layer Name">
+                                  </div>
+                                </div>
+                                <div class="col-12">
+                                  <label for="lbllayerName" class="form-label lf"> Layer Type </label>
+                                  <div class="input-group input-group-sm" id="srsdiv">
+                                    <span class="input-group-text" id="inputGroupPrepend"><i class="bi bi-layers"></i></span>
+                                    <select
+                                    name="layerType" class="form-control sectionbg form-select" id="idsrs"
+                                    data="Layer Type">
+                                    <option value="0">Select Layer Type</option>
+                                    <option value=".shp">Vector</option>
+                                    <option value=".tif">Raster</option>
+                                  </select>
+                                  </div>
+                                </div>
+                                <div class="col-12">
+                                  <label for="lbllayerName" class="form-label lf"> Upload File </label>
+                                  <div class="input-group input-group-sm" id="sfilediv">
+                                    <span class="input-group-text" id="inputGroupPrepend"><i class="bi bi-file-earmark-text"></i></span>
+                                    <input
+                                type="file" name="sfile" accept=".zip" id="idsfile"
+                                class="form-control resetVal"
+                                style="padding-top: 3px; padding-left: 2px;"
+                                data="Upload Shape File" />
+                                  </div>
+                                </div>
+                                <div class="col-12">
+                                  <div class="mx-auto my-3 w-100 text-center">
+                                    <button type="button" class="btn btn-primary btn-sm w-40 me-2"
+                                      onclick="publishLayerValidation();">Publish</button>
+                                      <button type="button" class="btn btn-primary btn-sm w-40" onclick="publishReset();">Reset</button>	 
+                                  </div>
+                                </div>
+                                <div class="col-12">
+                                  <hr/>
+                                </div>
+                              </form>
+                            </div>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-1">&nbsp;</div>       
+   </div>
+  </section>
+</div>
+      <!-- End #main -->
+      <!-- ======= Footer ======= -->
+      <footer id="footer" class="footer p-2 fixed-bottom">
+         <div class="copyright">
+            &copy; Copyright 2021 <a href="../index.html"><strong><span>NIUE Geoportal</span></strong></a><span>. Designed by <a href="https://www.iictechnologies.com/">IIC Technologies.</a></span> All Rights Reserved
+         </div>
+      </footer>
+      <!-- End Footer -->
+     
+     
+      <div class="modal" id="modalForUpload">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+      
+            <!-- Modal body -->
+            <div class="modal-body p-2">
+              <div class="text-center display-5 mb-3 texticon">
+                
+               </div>
+               <p class="mb-0 font-weight-light customtext text-center w-100"></p>
+            </div>
+      
+            <!-- Modal footer -->
+            <div class="modal-footer p-1 justify-content-center">
+              <button type="button" class="btn btn-primary btnclear" data-bs-dismiss="modal">Ok</button>
+            </div>
+      
+          </div>
+        </div>
+           </div>
+           <div class="modal" id="myModal">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+          
+                <!-- Modal body -->
+                <div class="modal-body p-2">
+                  <div class="text-center display-5 mb-3 texticon">
+                    
+                   </div>
+                   <p class="mb-0 font-weight-light customtext text-center w-100"></p>
+                </div>
+          
+                <!-- Modal footer -->
+                <div class="modal-footer p-1 justify-content-center">
+                  <button type="button" class="btn btn-primary btnclear" data-bs-dismiss="modal">OK</button>
+                </div>
+          
+              </div>
+            </div>
+               </div>
+
+      <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+     
+     
+      <!-- Vendor JS Files -->
+      <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+      <script src="../assets/vendor/tinymce/tinymce.min.js"></script>
+      <!-- Template Main JS File -->
+      <script src="../assets/js/main.js"></script> 
+      <script src="../assets/js/common.js"></script>      
+      <script>
+        var user;        
+         $(document).ready(function(){
+              $("#modalForUpload").modal({backdrop: "static"}); 
+              $("#myModal").modal({backdrop: "static"});  
+              $(".btnclear").click(function(){
+              $( ".alerticon" ).remove();             
+          });
+            user =localStorage.getItem('Username');
+            var role =localStorage.getItem('Role');
+            var department =localStorage.getItem('Department');
+            $(".showUserName").text(user);
+            $('#roleLabel').html(role+" ,"+department);
+            loadworkspaces(); 
+         });
+         function loadworkspaces(){
+            $.ajax({
+              type: "Get",
+               url: "http://14.142.106.205:8889/workSpaceNames",
+             // url: "http://localhost:8082/workSpaceNames",
+              data: {},
+              async: true,              
+              success : function(response){                
+                $.each(response,function(index,value){
+                  $("#selectworkspace").append('<option value="'+value+'">'+value+'</option>');
+                });			
+              }
+            });
+        }
+      function uploadForm() {         
+          $( ".alerticon" ).remove();
+          var form = $('#fileUploadForm')[0];
+          var fileName = $('#yourFilename').val();
+          var fileTypes = fileName.split('.');
+          var urlValue='';
+
+          var data = new FormData(form);
+          var themename = $( "#themeName option:selected" ).text();          
+          var villagename = $( "#villageName option:selected" ).text();                    
+          var desc = $('textarea#Description').val();          
+          if (fileTypes[1] != null && fileTypes[1] != '' && fileTypes[1] != 'null'){
+            if(fileTypes[1] =='pdf' || fileTypes[1] == 'doc' || fileTypes[1] =='xls' || fileTypes[1] =='xlsx' || fileTypes[1] =='docx'){
+              console.log('Allows only these types');
+              urlValue='Niue/uploadForm';
+            }
+            else if(fileTypes[1].toLowerCase() =='jpeg' || fileTypes[1].toLowerCase() == 'jpg' || fileTypes[1].toLowerCase() =='png'){
+                  console.log('Allows only these types');
+                  urlValue='Niue/uploadImage';
+                }
+               
+            else if(fileTypes[1].toLowerCase() =='mp4' || fileTypes[1].toLowerCase() == 'x-m4v'){    
+              console.log('Allows only these types of videos');
+              urlValue='Niue/uploadForm';
+            }
+            else{    
+                msg = 'Please upload only pdf/xls/doc/jpeg/jpg/png/mp4 file';
+                $("#modalForUpload").modal("show");
+                $(".customtext").text(msg);
+                $( ".texticon" ).append( '<i class="alerticon bi bi-shield-fill-exclamation text-warning"></i>' );
+                $('#yourFilename').val('');
+                $('textarea#Description').val('');
+                $('#themeName').val('');                
+                $('#villageName').val('');
+                return false;
+            }
+          }
+          else{
+            msg = 'Please upload only pdf/xls/doc/jpeg/jpg/png/mp4 file';
+            $("#modalForUpload").modal("show");
+            $(".customtext").text(msg);
+            $( ".texticon" ).append( '<i class="alerticon bi bi-shield-fill-exclamation text-warning"></i>' );
+            $('#yourFilename').val('');
+            $('textarea#Description').val('');
+            $('#themeName').val('');
+            $('#villageName').val('');
+            return false;
+          }
+          if ((themename == null || themename == '' || themename == '--Select Theme--' || themename == 'undefined')) {
+              msg = " Please select the theme name ";
+              $("#modalForUpload").modal("show");
+              $(".customtext").text(msg);
+              $( ".texticon" ).append( '<i class="alerticon bi bi-shield-fill-exclamation text-warning"></i>' );
+              $("#themeName").focus();
+              return false;
+          }
+          if ((villagename == null || villagename == '' || villagename == '--Select Village--' || villagename == 'undefined')) {
+              msg = " Please select the village name ";
+              $("#modalForUpload").modal("show");
+              $(".customtext").text(msg);
+              $( ".texticon" ).append( '<i class="alerticon bi bi-shield-fill-exclamation text-warning"></i>' );
+              $("#villageName").focus();
+              return false;
+          }
+          if (desc == "" || desc.length == 0) {      
+              msg = " Description field can't be empty ";
+              $("#modalForUpload").modal("show");
+              $(".customtext").text(msg);
+              $( ".texticon" ).append( '<i class="alerticon bi bi-shield-fill-exclamation text-warning"></i>' );
+              $("#Description").focus();              
+              return false;
+            }
+         
+          data.append('userName', user); 
+          data.append('passWord', localStorage.getItem('Password')); 
+          data.append('themeName', themename);           
+          data.append('villageName', villagename);
+          data.append('description', desc);
+
+          $.ajax({
+              type: "POST",
+              enctype: 'multipart/form-data',
+              url: "http://14.142.106.205:8889/"+urlValue,
+             // url: "http://localhost:8082/"+urlValue,
+              data: data,
+              processData: false, //prevent jQuery from automatically transforming the data into a query string
+              contentType: false,
+              cache: false,
+              timeout: 600000,
+              success: function (data) {
+                  console.log("SUCCESS : ", data);                  
+                  msg = data;
+                  $("#modalForUpload").modal("show");
+                  $(".customtext").text(msg);
+                  $( ".texticon" ).append( '<i class="alerticon bi bi-check-circle text-success"></i>' );
+                  $('#yourFilename').val('');
+                  $('textarea#Description').val('');
+                  $('#themeName').val('');
+                  $('#villageName').val('');
+              },
+              error: function (e) {
+                  console.log("ERROR : ", e);
+                  msg = e.responseText;
+                  $("#modalForUpload").modal("show");
+                  $(".customtext").text(msg);
+                  $( ".texticon" ).append( '<i class="alerticon bi bi-shield-fill-x text-danger"></i>' );
+                  $('#yourFilename').val('');
+                  $('textarea#Description').val('');
+                  $('#themeName').val('');
+                  $('#villageName').val('');
+              }
+          });
+      }
+      function publishLayerValidation(){
+
+          $( ".alerticon" ).remove();
+          var storeName = $("#idstoreName").val();					
+          var workSpaceName = $( "#selectworkspace option:selected" ).text();					          
+          var layerTypeText = $( "#idsrs option:selected" ).text(); 
+          var layerType = $('#idsrs').val();         
+		      var form = $('#idsfile')[0].files[0];			
+          var shpFilePath = $("#idsfile").val().toLowerCase();		
+
+          var title = $("#title").val();
+          //var dateVal = $("#date").val();
+          var abstract = $("#abstractdata").val();
+          /*var purposeVal = $("#purpose").val();
+          var indVal = $("#individualname").val();
+          var orgVal = $("#organizationname").val();
+          var posVal = $("#positionname").val();
+          var cityVal = $("#city").val();
+          var postalVal = $("#postalcode").val();
+          var countryVal = $("#country").val();
+
+          var emailRegex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z-])+\.)+([a-zA-Z0-9.]{2,6})+$/;
+          var emailVal = $("#email").val();
+          if(emailVal !=""){
+            var emailStatus = emailRegex.test(emailVal);
+            if(!emailStatus){              
+              var msg = "Please enter valid Email id";   
+              $("#myModal").modal("show");
+              $(".customtext").text(msg);
+              $( ".texticon" ).append( '<i class="alerticon bi bi-shield-fill-exclamation text-warning"></i>' );
+              $("#email").focus();                                      
+              return false;
+            }
+          }*/
+
+          var keyword1Val = $("#keyword1").val();
+          var keyword2Val = $("#keyword2").val();
+          //var protocal1Val = $("#protocol1").val();
+          var descriptionVal = $("#description1").val();
+
+          if(title ==""){            
+            var msg = "Please enter Title";   
+            $("#myModal").modal("show");
+            $(".customtext").text(msg);
+            $( ".texticon" ).append( '<i class="alerticon bi bi-shield-fill-exclamation text-warning"></i>' );
+            $("#title").focus();                                      
+            return false;
+          }/*else if(dateVal ==""){            
+            var msg = "Please enter Date";   
+            $("#myModal").modal("show");
+            $(".customtext").text(msg);
+            $( ".texticon" ).append( '<i class="alerticon bi bi-shield-fill-exclamation text-warning"></i>' );
+            $("#date").focus();                                      
+            return false;
+          }*/else if(abstract ==""){            
+            var msg = "Please enter Abstract";   
+            $("#myModal").modal("show");
+            $(".customtext").text(msg);
+            $( ".texticon" ).append( '<i class="alerticon bi bi-shield-fill-exclamation text-warning"></i>' );
+            $("#abstractdata").focus();                                      
+            return false;
+          }/*else if(purposeVal ==""){            
+            var msg = "Please enter Purpose";   
+            $("#myModal").modal("show");
+            $(".customtext").text(msg);
+            $( ".texticon" ).append( '<i class="alerticon bi bi-shield-fill-exclamation text-warning"></i>' );
+            $("#purpose").focus();                                      
+            return false;
+          }else if(indVal ==""){            
+            var msg = "Please enter Individual Name";   
+            $("#myModal").modal("show");
+            $(".customtext").text(msg);
+            $( ".texticon" ).append( '<i class="alerticon bi bi-shield-fill-exclamation text-warning"></i>' );
+            $("#individualname").focus();                                      
+            return false;
+          }else if(orgVal ==""){            
+            var msg = "Please enter Organization Name";   
+            $("#myModal").modal("show");
+            $(".customtext").text(msg);
+            $( ".texticon" ).append( '<i class="alerticon bi bi-shield-fill-exclamation text-warning"></i>' );
+            $("#organizationname").focus();                                      
+            return false;
+          }else if(posVal ==""){            
+            var msg = "Please enter Position Name";   
+            $("#myModal").modal("show");
+            $(".customtext").text(msg);
+            $( ".texticon" ).append( '<i class="alerticon bi bi-shield-fill-exclamation text-warning"></i>' );
+            $("#positionname").focus();                                      
+            return false;
+          }else if(cityVal ==""){            
+            var msg = "Please enter City";   
+            $("#myModal").modal("show");
+            $(".customtext").text(msg);
+            $( ".texticon" ).append( '<i class="alerticon bi bi-shield-fill-exclamation text-warning"></i>' );
+            $("#city").focus();                                      
+            return false;
+          }else if(postalVal ==""){            
+            var msg = "Please enter Postalcode";   
+            $("#myModal").modal("show");
+            $(".customtext").text(msg);
+            $( ".texticon" ).append( '<i class="alerticon bi bi-shield-fill-exclamation text-warning"></i>' );
+            $("#postalcode").focus();                                      
+            return false;
+          }else if(countryVal ==""){            
+            var msg = "Please enter Country";   
+            $("#myModal").modal("show");
+            $(".customtext").text(msg);
+            $( ".texticon" ).append( '<i class="alerticon bi bi-shield-fill-exclamation text-warning"></i>' );
+            $("#country").focus();                                      
+            return false;
+          }else if(emailVal ==""){            
+            var msg = "Please enter Email";   
+            $("#myModal").modal("show");
+            $(".customtext").text(msg);
+            $( ".texticon" ).append( '<i class="alerticon bi bi-shield-fill-exclamation text-warning"></i>' );
+            $("#email").focus();                                      
+            return false;
+          }*/else if(keyword1Val ==""){            
+            var msg = "Please enter Keyword1";   
+            $("#myModal").modal("show");
+            $(".customtext").text(msg);
+            $( ".texticon" ).append( '<i class="alerticon bi bi-shield-fill-exclamation text-warning"></i>' );
+            $("#keyword1").focus();                                      
+            return false;
+          }else if(keyword2Val ==""){            
+            var msg = "Please enter Keyword2";   
+            $("#myModal").modal("show");
+            $(".customtext").text(msg);
+            $( ".texticon" ).append( '<i class="alerticon bi bi-shield-fill-exclamation text-warning"></i>' );
+            $("#keyword2").focus();                                      
+            return false;
+          }/*else if(protocal1Val ==""){             
+            var msg = "Please enter Protocol";   
+            $("#myModal").modal("show");
+            $(".customtext").text(msg);
+            $( ".texticon" ).append( '<i class="alerticon bi bi-shield-fill-exclamation text-warning"></i>' );
+            $("#protocol1").focus();                                      
+            return false;
+          }*/else if(descriptionVal ==""){            
+            var msg = "Please enter Description";   
+            $("#myModal").modal("show");
+            $(".customtext").text(msg);
+            $( ".texticon" ).append( '<i class="alerticon bi bi-shield-fill-exclamation text-warning"></i>' );
+            $("#description1").focus();                                      
+            return false;
+          }          
+
+          if (workSpaceName == "" || workSpaceName.length == 0) {  
+            var msg = " Please enter workspace name";   
+            $("#modalForUpload").modal("show");
+            $(".customtext").text(msg);
+            $( ".texticon" ).append( '<i class="alerticon bi bi-shield-fill-exclamation text-warning"></i>' );
+            $("#createworkspace").focus();                          
+            return false;    
+          }
+          if (storeName == "" || storeName.length == 0) {  
+            var msg = " Please enter store name";            
+            $("#modalForUpload").modal("show");
+            $(".customtext").text(msg);
+            $( ".texticon" ).append( '<i class="alerticon bi bi-shield-fill-exclamation text-warning"></i>' );
+            $("#idstoreName").focus();                          
+            return false;     
+          }          
+          if ((layerTypeText == null || layerTypeText == '' || layerTypeText == 'Select Layer Type' || layerTypeText == 'undefined')) {
+            var msg = " Please select layer type";            
+            $("#modalForUpload").modal("show");
+            $(".customtext").text(msg);
+            $( ".texticon" ).append( '<i class="alerticon bi bi-shield-fill-exclamation text-warning"></i>' );
+            $("#idsrs").focus();                          
+            return false;     
+          }
+          if(!(shpFilePath.includes(".zip"))){		
+            var msg = " Please upload only zip files";            
+            $("#modalForUpload").modal("show");
+            $(".customtext").text(msg);
+            $( ".texticon" ).append( '<i class="alerticon bi bi-shield-fill-exclamation text-warning"></i>' );
+            $("#idsfile").focus();                          
+            return false; 
+		}          
+			var data = new FormData();
+			data.append('storeName', storeName); 					
+			data.append('sfile', form);
+			data.append('workspaceName', workSpaceName);
+			data.append('layerType', layerType);
+
+          data.append('title',title);
+          //data.append('date',dateVal);
+          data.append('abstractdata',abstract);
+          /*data.append('role',$("#role").val());
+          data.append('maintainanceupdatefrequency',$("#maintainanceupdatefrequency").val());
+          data.append('purpose',purposeVal);
+          data.append('individualname',indVal);
+          data.append('organizationname',orgVal);
+          data.append('positionname',posVal);
+          data.append('city',cityVal);
+          data.append('postalcode',postalVal);
+          data.append('country',countryVal);
+          data.append('email',emailVal);*/
+          data.append('keyword1',keyword1Val);
+          data.append('keyword2',keyword2Val);
+          /*data.append('linkage1',$("#linkage1").val());
+          data.append('protocol1',protocal1Val);
+          data.append('resource1',$("#idlayerName").val());*/
+          data.append('description1',descriptionVal);
+            
+          /*data.append('linkage2',"linkage2");
+          data.append('protocol2',"protocol2");
+          data.append('resource2',"resource2");
+          data.append('description2',"description2");*/
+            
+           $.ajax({
+				type: "POST",
+				enctype: 'multipart/form-data',					
+			//	url: "http://localhost:8082/publishLayer",
+				url: "http://14.142.106.205:8889/publishLayer",
+				data: data,
+				processData: false, //prevent jQuery from automatically transforming the data into a query string
+				contentType: false,
+				cache: false,
+				timeout: 600000,
+				success: function (data) {                          							
+				  console.log("SUCCESS : ", data);     
+				  $("#modalForUpload").modal("show");
+				  $(".customtext").text(data);
+				  $( ".texticon" ).append( '<i class="alerticon bi bi-shield-fill-exclamation text-warning"></i>' );
+				  publishReset();              
+				},
+				error: function (e) {
+					console.log("ERROR : ", e);			
+				  $("#modalForUpload").modal("show");
+				  $(".customtext").text(e.responseText);
+				  $( ".texticon" ).append( '<i class="alerticon bi bi-shield-fill-exclamation text-warning"></i>' );							             
+          publishReset();
+				}
+			});
+      }
+      function publishReset(){
+        $(".resetVal").val("");
+        $("#idsrs").val("0");
+        $("#selectworkspace").val("0");        
+        $('#idsrs').val("");
+      }
+    
+    </script>     
+   </body>
+</html>

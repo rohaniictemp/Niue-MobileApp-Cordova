@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>NIUE Geoportal</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="../assets/img/favicon.png" rel="icon">
+  <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="../assets/vendor/quill/quill.snow.css" rel="stylesheet">
+  <link href="../assets/vendor/quill/quill.bubble.css" rel="stylesheet">
+  <link href="../assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="../assets/vendor/simple-datatables/style.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="../assets/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <div>
+    <div class="container">
+<!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top d-flex align-items-center">
+
+    <nav class="navbar navbar-dark navbar-expand-md w-100 bg-niueblue fixed-top d-flex align-items-center">
+      <div class="container-fluid">
+        <a href="../index.html" class="logo d-flex align-items-center">
+          <img src="../assets/img/logo.png" alt="" class="bg-white me-3" style="border-radius: 4px;"/>
+          <span class="d-none d-lg-block">NIUE Geoportal</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse header-nav" id="mynavbar">
+          <ul class="navbar-nav justify-content-end w-100">
+         <li class="nav-item">
+          <a class="nav-link nav-icon scrollto" href="../index.html">
+            <span class="me-1"><i class="bi bi-house-door"></i></span>
+            <span class="ps-1">Home</span>
+          </a><!-- End map Icon -->
+        </li>
+        <li class="nav-item">
+          <a class="nav-link nav-icon scrollto" href="preloginsearch.html">
+            <span class="me-1"><i class="bi bi-search"></i></span>
+            <span class="ps-1">Search</span>
+          </a><!-- End map Icon -->
+        </li>
+		<li class="nav-item">
+          <a class="nav-link nav-icon" href="../map.html">
+            <span class="me-1"><i class="bi bi-globe2"></i></span>
+            <span class="ps-1">Map</span>
+          </a><!-- End map Icon -->
+        </li>
+		<li class="nav-item">
+          <a class="nav-link nav-icon" href="../index.html#about">
+            <span class="me-1"><i class="bi bi-info-circle"></i></span>
+            <span class="ps-1">About</span>
+          </a><!-- End map Icon -->
+        </li>
+        <li class="nav-item">
+          <a class="nav-link nav-icon active" href="../publicusers/loginpage.html">
+            <span class="me-1"><i class="bi bi-box-arrow-in-left"></i></span>
+            <span class="ps-1">Login</span>
+          </a><!-- End map Icon -->
+        </li>
+       
+
+      </ul>
+      </div>
+      </div>
+    </nav><!-- End Icons Navigation -->
+
+  </header><!-- End Header -->
+      <section class="section register d-flex flex-column align-items-center justify-content-center h_user">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-8 col-md-8 d-flex flex-column align-items-center justify-content-center">
+
+           <!--   <div class="d-flex justify-content-center my-3">
+                <a href="../index.html" class="logo d-flex align-items-center w-auto">
+                  <img src="../assets/img/logo.png" alt="">
+                  <span class="d-none d-lg-block login">NIUE Geoportal</span>
+                </a>
+              </div>-->
+
+              <div class="card mb-2">
+
+                <div class="card-body">
+
+                  <div class="pt-2 pb-2">
+                    <h5 class="card-title text-center pb-0 fs-4">Register Public User</h5>
+                  </div>
+
+                  <div class="row g-3">
+                    <div class="col-md-6 col-lg-6 col-12">
+                    <div class="col-12 mb-2">
+                      <label for="yourname" class="form-label">Enter Your Name<!--<span class="text-danger">*</span>--></label>
+                      <div class="input-group">
+                        <span class="input-group-text" id="inputGroupPrepend"><i class="bx bxs-user"></i></span>
+                        <input type="text" name="lastname" class="form-control" id="lastName_id" required>
+                        <div class="invalid-feedback">Please enter your Name.</div>
+                      </div>
+                    </div> 
+                    <div class="col-12 mb-2">
+                      <label for="yourUsername" class="form-label">Username<!--<span class="text-danger">*</span>--></label>
+                      <div class="input-group">
+                        <span class="input-group-text" id="inputGroupPrepend"><i class="bx bxs-user"></i></span>
+                        <input type="text" name="username" class="form-control" id="username_id" required>
+                        <div class="invalid-feedback">Please enter your username.</div>
+                      </div>
+                    </div>
+                    <div class="col-12 mb-2">
+                      <label for="yourpassword" class="form-label">Password<!--<span class="text-danger">*</span>--></label>
+                      <div class="input-group">
+                        <span class="input-group-text" id="inputGroupPrepend"><i class="bx bxs-lock"></i></span>
+                        <input type="password" name="password" class="form-control" id="password_id" required>
+                        <div class="invalid-feedback">Please enter your password.</div>
+                      </div>
+                    </div>                    
+                    </div>                    
+                    <div class="col-12 col-md-6 col-lg-6">
+                    <div class="col-12 mb-2">
+                        <label for="EnterEmail" class="form-label">Enter Your Email<!--<span class="text-danger">*</span>--></label>
+                        <div class="input-group">
+                            <span class="input-group-text" id="inputGroupPrepend"><i class="bx bx-at"></i></span>
+                            <input type="text" name="email" class="form-control" id="email_id" required>
+                            <div class="invalid-feedback">Please enter your Email.</div>
+                        </div>
+                        </div> 
+                    <div class="col-12 mb-2">
+                      <label for="yourPhoneno" class="form-label">Phone Number<!--<span class="text-danger">*</span>--></label>
+					            <div class="input-group">
+                        <span class="input-group-text" id="inputGroupPrepend"><i class="bi bi-telephone-fill"></i></span>
+                      <input type="text" name="phoneno" class="form-control" id="phoneno_id" onkeypress="return isNumber(event)" required>					 
+                      <div class="invalid-feedback">Please enter your phone number</div>
+					            </div>
+                    </div>                    
+                    </div>
+                    <div class="col-12">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="remember" value="true" id="rememberMe" checked>
+                        <label class="form-check-label" for="rememberMe">I agree and accept the <a href="#" onClick="gotoTermsConditions();">Terms  &amp; Conditions </a></label>
+                      </div>
+                    </div> 
+                    <div class="col-12 mx-auto text-center">
+                      <button id="btnRegister" class="btn btn-primary" style="width:200px;" onclick="registerUser();">Register</a>
+                    </div>                   
+                  </div>
+
+                </div>
+              </div>
+
+
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div><!-- End #main -->
+      <!-- ======= Footer ======= -->
+  <footer class="footer p-2 container-fluid fixed-bottom">
+    <div class="copyright">
+      &copy; Copyright 2021 <a href="../index.html"><strong><span>NIUE Geoportal</span></strong></a><span>. Designed by <a href="https://www.iictechnologies.com/">IIC Technologies.</a></span> All Rights Reserved
+    
+    </div>
+   
+  </footer><!-- End Footer -->      
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center customalert"><i class="bi bi-arrow-up-short"></i></a>
+       
+        <div class="modal" id="myModal">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+
+      <!-- Modal body -->
+      <div class="modal-body p-2">
+        <div class="text-center display-5 mb-3 texticon">
+         
+         </div>
+         <p class="mb-0 font-weight-light customtext text-center w-100"></p>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer p-1 justify-content-center">
+        <button type="button" class="btn btn-primary btnclear" data-bs-dismiss="modal">OK</button>
+      </div>
+
+    </div>
+  </div>
+     </div>
+
+     <div class="modal" id="LoginRedirect">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+    
+          <!-- Modal body -->
+          <div class="modal-body p-2">
+            <div class="text-center display-5 mb-3 texticon">
+              
+             </div>
+             <p class="mb-0 font-weight-light customtext text-center w-100"></p>
+          </div>
+    
+          <!-- Modal footer -->
+          <div class="modal-footer p-1 justify-content-center">
+            <button type="button" class="btn btn-primary btnclear" onClick="closeAfterRedirect()" data-bs-dismiss="modal">OK</button>
+          </div>
+    
+        </div>
+      </div>
+         </div>
+     
+  <!-- Vendor JS Files -->
+  <script src="../assets/js/jquery-3.4.1.min.js"></script>
+  <script src="../assets/vendor/apexcharts/apexcharts.min.js"></script>
+  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/vendor/chart.js/chart.min.js"></script>
+  <script src="../assets/vendor/echarts/echarts.min.js"></script>
+  <script src="../assets/vendor/quill/quill.min.js"></script>
+  <script src="../assets/vendor/simple-datatables/simple-datatables.js"></script>
+  <script src="../assets/vendor/tinymce/tinymce.min.js"></script>
+ 
+  <script src="../assets/js/common.js"></script>
+  <!-- Template Main JS File -->
+  <script src="../assets/js/main.js"></script>  
+  <script src="../assets/js/jquery.js"></script>
+  <script>
+    $(document).ready(function () {
+          $("#myModal").modal({backdrop: "static"});
+     $(".btnclear").click(function(){
+        $( ".alerticon" ).remove();
+    });
+  });
+   function closeAfterRedirect(){	
+      window.location.href = 'loginpage.html';
+  }
+function isNumber(evt) {
+	    evt = (evt) ? evt : window.event;
+	    var charCode = (evt.which) ? evt.which : evt.keyCode;
+	    if (charCode > 31 && (charCode < 48 || charCode > 57)) 
+	      { return false; }
+	    return true;
+	}
+function registerUser () {
+
+    var strUserName = $("#username_id").val();   
+    var strPassword = $("#password_id").val();        
+    var strLastName = $("#lastName_id").val();
+    var strEmail = $("#email_id").val();
+    var strPhone = $("#phoneno_id").val();   
+
+    var atposition=strEmail.indexOf("@");  
+    var dotposition=strEmail.lastIndexOf(".");  
+
+    var regEx = /^\d{10}$/;
+        
+    if (strLastName == "" || strLastName.length == 0) {     
+      msg = " Name field can't be empty ";
+      $("#myModal").modal("show");
+      $(".customtext").text(msg);
+      $( ".texticon" ).append( '<i class="alerticon bi bi-shield-fill-exclamation text-warning"></i>' );
+      $("#lastName_id").focus();
+      return false;
+    }
+    if (strLastName.length < 3 || strLastName.length > 20 ) {      
+      msg = " Name length should be between 3 and 20 ";
+      $("#myModal").modal("show");
+      $(".customtext").text(msg);
+      $( ".texticon" ).append( '<i class="alerticon bi bi-shield-fill-exclamation text-warning"></i>' );
+      $("#lastName_id").focus();
+      return false;
+    }
+    if (strUserName == "" || strUserName.length == 0) {      
+      msg = " User Name can't be empty ";
+      $("#myModal").modal("show");
+      $(".customtext").text(msg);
+      $( ".texticon" ).append( '<i class="alerticon bi bi-shield-fill-exclamation text-warning"></i>' );
+      $("#username_id").focus();
+      return false;
+    }
+    if (strUserName.length < 3 || strUserName.length > 18 ) {    
+      msg = " User Name length should be between 3 and 18 ";
+      $("#myModal").modal("show");
+      $(".customtext").text(msg);
+      $( ".texticon" ).append( '<i class="alerticon bi bi-shield-fill-exclamation text-warning"></i>' );
+      $("#username_id").focus();
+      return false;
+    }
+    if (strPassword == "" || strPassword.length == 0) {      
+      msg = " Password can't be empty ";
+      $("#myModal").modal("show");
+      $(".customtext").text(msg);
+      $( ".texticon" ).append( '<i class="alerticon bi bi-shield-fill-exclamation text-warning"></i>' );
+      $("#password_id").focus();
+      return false;
+    }
+    if (strPassword.length < 6 ) {    
+      msg = "Password length should be greaterthan 5 characters ";
+      $("#myModal").modal("show");
+      $(".customtext").text(msg);
+      $( ".texticon" ).append( '<i class="alerticon bi bi-shield-fill-exclamation text-warning"></i>' );
+      $("#password_id").focus();
+      return false;
+    }
+    if (strEmail == "" || strEmail.length == 0) {     
+      msg = " Email can't be empty ";
+      $("#myModal").modal("show");
+      $(".customtext").text(msg);
+      $( ".texticon" ).append( '<i class="alerticon bi bi-shield-fill-exclamation text-warning"></i>' );
+      $("#email_id").focus();
+      return false;
+    }
+    if (atposition<1 || dotposition<atposition+2 || dotposition+2>=strEmail.length){  
+      msg = "You have entered an invalid email address!";
+      $("#myModal").modal("show");
+      $(".customtext").text(msg);
+      $( ".texticon" ).append( '<i class="alerticon bi bi-shield-fill-exclamation text-warning"></i>' );
+      $("#email_id").focus();
+      return false;
+    }
+    if (strPhone == "" || strPhone.length == 0) {      
+      msg = " Phone number can't be empty ";
+      $("#myModal").modal("show");
+      $(".customtext").text(msg);
+      $( ".texticon" ).append( '<i class="alerticon bi bi-shield-fill-exclamation text-warning"></i>' );
+      $("#phoneno_id").focus();
+      return false;
+    }  
+    if (strPhone == "" || strPhone.length == 0) {      
+      msg = " Phone number can't be empty ";
+      $("#myModal").modal("show");
+      $(".customtext").text(msg);
+      $( ".texticon" ).append( '<i class="alerticon bi bi-shield-fill-exclamation text-warning"></i>' );
+      $("#phoneno_id").focus();
+      return false;
+    }
+    if (strPhone.length < 10 || strPhone.length > 20 ) { 
+      msg = "Invalid Phone No ";
+      $("#myModal").modal("show");
+      $(".customtext").text(msg);
+      $( ".texticon" ).append( '<i class="alerticon bi bi-shield-fill-exclamation text-warning"></i>' );
+      $("#phoneno_id").focus();
+      return false;
+    }
+    if(!(strPhone.match(regEx))){
+      msg = "Please enter a valid phone number ";
+      $("#myModal").modal("show");
+      $(".customtext").text(msg);
+      $( ".texticon" ).append( '<i class="alerticon bi bi-shield-fill-exclamation text-warning"></i>' );
+      $("#phoneno_id").focus();
+      return false;
+    }
+     
+        $.ajax({
+                    type: 'POST',
+                    url: 'http://14.142.106.205:8889/Niue/publicsignup', 
+                    data:{username: strUserName, password: strPassword, lastname: strLastName, email: strEmail, phoneno: strPhone},                   
+                    async: false,                                
+              success: function (response) {         
+                  if (response != null && response != '') {                    
+                      msg = response;
+                      if(msg.startsWith("Failure")){
+                        msg=msg.replace("Failure","");
+                        $("#myModal").modal("show");
+                        $(".customtext").text(msg);
+                        $( ".texticon" ).append( '<i class="alerticon bi bi-shield-fill-x text-danger"></i>' );
+                      }
+                      else{  
+                          $("#LoginRedirect").modal("show");
+                          $(".customtext").text(msg);
+                          $( ".texticon" ).append( '<i class="alerticon bi bi-shield-fill-check text-success"></i>' );
+                      }
+                      registerUserReset();
+                  }
+                  else {                     
+                      msg = " Not Found ";
+                      $("#myModal").modal("show");
+                      $(".customtext").text(msg);
+                      $( ".texticon" ).append( '<i class="alerticon bi bi-shield-fill-x text-danger"></i>' );
+                      registerUserReset();
+                  }
+              },
+              error: function (xhr, status, error) {
+                  var msg = "User registration unsuccessful ";
+                  $("#myModal").modal("show");
+                  $(".customtext").text(msg);
+                  $( ".texticon" ).append( '<i class="alerticon bi bi-shield-fill-x text-danger"></i>' );
+                  registerUserReset();
+              },
+              failure: function (xhr, status, failure) {
+                  var msg = "User registration unsuccessful ";
+                  $("#myModal").modal("show");
+                  $(".customtext").text(msg);
+                  $( ".texticon" ).append( '<i class="alerticon bi bi-shield-fill-x text-danger"></i>' );
+                  registerUserReset();
+              }
+          });		
+    }
+    function registerUserReset(){      			
+        $("#username_id").val("");
+        $("#password_id").val("");
+        $("#lastName_id").val("");
+        $("#email_id").val("");
+        $("#phoneno_id").val("");                
+    }
+   </script>
+</body>
+
+</html>

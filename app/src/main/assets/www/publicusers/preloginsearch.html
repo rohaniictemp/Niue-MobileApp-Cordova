@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+   <title>NIUE Geoportal</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="../assets/img/favicon.png" rel="icon">
+  <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="../assets/vendor/quill/quill.snow.css" rel="stylesheet">
+  <link href="../assets/vendor/quill/quill.bubble.css" rel="stylesheet">
+  <link href="../assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="../assets/vendor/simple-datatables/style.css" rel="stylesheet">
+  
+  
+
+  <!-- Template Main CSS File -->
+  <link href="../assets/css/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/jquery_dialog/jquery-ui.css">
+
+  <script src="../assets/js/jquery-3.4.1.min.js"></script>
+  <script src="../assets/jquery_dialog/jquery-ui.min.js"></script>
+  <script type="text/javascript" src="../assets/js/mappings.js"></script>
+  <script src="../assets/js/listmetadatathemes.js"></script> 
+
+
+    <style>
+      #main{
+        margin-top: 60px;
+      }
+    </style>
+    <script>
+      function removeStorage(){
+        localStorage.removeItem('Username');
+				localStorage.removeItem('Password');
+        localStorage.removeItem('Dataset');
+        localStorage.removeItem('Display');
+		    localStorage.removeItem('DatasetName');
+      }
+    </script>
+</head>
+
+<body onload="removeStorage();">
+  <!-- ======= Header ====== -->
+  <header id="header" class="header fixed-top d-flex align-items-center">
+
+    <nav class="navbar navbar-dark navbar-expand-md w-100 bg-niueblue fixed-top d-flex align-items-center">
+      <div class="container-fluid">
+        <div class="d-flex align-items-center justify-content-between">
+        <a href="../index.html" class="logo d-flex align-items-center">
+          <img src="../assets/img/logo.png" alt="" class="bg-white me-3" style="border-radius: 4px;"/>
+          <span class="d-none d-lg-block">NIUE Geoportal</span>
+        </a>
+        <i class="bi bi-list toggle-sidebar-btn"></i>
+        </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse header-nav" id="mynavbar">
+          <ul class="navbar-nav justify-content-end w-100">
+
+
+		<li class="nav-item">
+          <a class="nav-link nav-icon scrollto" href="../index.html">
+            <span class="me-1"><i class="bi bi-house-door"></i></span>
+            <span class="ps-1">Home</span>
+          </a><!-- End map Icon -->
+        </li>
+		<li class="nav-item">
+          <a class="nav-link nav-icon scrollto active" href="#">
+            <span class="me-1"><i class="bi bi-search"></i></span>
+            <span class="ps-1">Search</span>
+          </a><!-- End map Icon -->
+        </li>
+		<li class="nav-item">
+          <a class="nav-link nav-icon" href="../map.html">
+            <span class="me-1"><i class="bi bi-globe2"></i></span>
+            <span class="ps-1">Map</span>
+          </a><!-- End map Icon -->
+        </li>
+        <li class="nav-item">
+          <a class="nav-link nav-icon" href="../index.html#about">
+            <span class="me-1"><i class="bi bi-info-circle"></i></span>
+            <span class="ps-1">About</span>
+          </a><!-- End map Icon -->
+        </li>
+        <li class="nav-item">
+          <a class="nav-link nav-icon" href="loginpage.html">
+            <span class="me-1"><i class="bi bi-box-arrow-in-left"></i></span>
+            <span class="ps-1">Login</span> 
+          </a><!-- End map Icon -->
+        </li>
+      </ul>
+      </div>
+      </div>
+    </nav><!-- End Icons Navigation -->
+
+  </header><!-- End Header -->
+
+ <!-- ======= Sidebar ======= -->
+ <aside id="sidebar" class="sidebar">
+
+  <ul class="sidebar-nav" id="sidebar-nav">
+
+
+    <li class="nav-item">
+      <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+        <i class="bi bi-list-check"></i><span>Type of Resources</span><i class="bi bi-chevron-down ms-auto"></i>
+      </a>
+      <ul id="components-nav" class="nav-content collapse show" data-bs-parent="#sidebar-nav">
+        <li>
+          <div class="d-flex my-1">
+            <input type="checkbox" id="myCheckbox15" value = "Raster" class = 'datatypecls' />
+            <label for="myCheckbox15" class="mx-0 rounded-circle w-10 checkboxlabel"><img src="../assets/img/leftpaneicons/sidebarimg-15.png" class="img-fluid"/></label>
+          <div class="form-check ps-2">
+            <label class="form-check-label ps-2">Raster Datasets</label>
+          </div>
+          </div>
+        </li> 
+        <li>
+          <div class="d-flex my-1">
+            <input type="checkbox" id="myCheckbox16" checked= "true" value = 'Vector' class = 'datatypecls'/>
+            <label for="myCheckbox16" class="mx-0 rounded-circle w-10 checkboxlabel"><img src="../assets/img/leftpaneicons/sidebarimg-16.png" class="img-fluid"/></label>
+          <div class="form-check ps-2">
+            <label class="form-check-label ps-2">Vector Datasets</label>
+          </div>
+          </div>
+        </li> 
+        <li>
+          <div class="d-flex my-1">
+            <input type="checkbox" id="myCheckbox18"  value = 'Documents' class = 'datatypecls'/>
+            <label for="myCheckbox18" class="mx-0 rounded-circle w-10 checkboxlabel"><img src="../assets/img/leftpaneicons/documents.png" class="img-fluid"/></label>
+          <div class="form-check ps-2">
+            <label class="form-check-label ps-2">Documents</label>
+          </div>
+          </div>
+        </li> 
+        <li>
+          <div class="d-flex my-1">
+            <input type="checkbox" id="myCheckbox19"   value = 'Mediafiles' class = 'datatypecls'/>
+            <label for="myCheckbox19" class="mx-0 rounded-circle w-10 checkboxlabel"><img src="../assets/img/leftpaneicons/mediafiles.png" class="img-fluid"/></label>
+          <div class="form-check ps-2">
+            <label class="form-check-label ps-2">Media</label>
+          </div>
+          </div>
+        </li>  
+      </ul>
+    </li><!-- End Components Nav -->
+    <li class="nav-item">
+      <a class="nav-link collapsed" data-bs-target="#themes-nav" data-bs-toggle="collapse" href="#">
+        <i class="bi bi-list-task"></i><span>Themes</span><i class="bi bi-chevron-down ms-auto"></i>
+      </a>
+      <ul id="themes-nav" class="nav-content collapse show" data-bs-parent="#sidebar-nav">
+       
+        <li>
+          <div class="d-flex my-1">
+            <input type="checkbox" id="GeologyandSoils" value ="GeologyandSoils" class = "themesnav_cls" checked= "true"/>
+            <label for="GeologyandSoils" class="mx-0 rounded-circle w-10 checkboxlabel"><img src="../assets/img/leftpaneicons/sidebarimg-1.png" class="img-fluid"/></label>
+          <div class="form-check ps-2">
+            <label class="form-check-label ps-2">Geology/Soils</label>
+          </div>
+          </div>
+        </li> 
+        <li>
+          <div class="d-flex my-1">
+            <input type="checkbox" id="Geographical Names" value ="Geographical Names" class = "themesnav_cls" checked= "true"/>
+            <label for="Geographical Names" class="mx-0 rounded-circle w-10 checkboxlabel"><img src="../assets/img/leftpaneicons/sidebarimg-2.png" class="img-fluid"/></label>
+            <div class="form-check ps-2">
+            <label class="form-check-label ps-2">Geographical Names</label>
+            </div>
+          </div>
+        </li> 
+        <li>
+          <div class="d-flex my-1">
+            <input type="checkbox" id="Addresses" value ="Addresses"  class = "themesnav_cls"/>
+            <label for="Addresses" class="mx-0 rounded-circle w-10 checkboxlabel"><img src="../assets/img/leftpaneicons/sidebarimg-3.png" class="img-fluid"/></label>
+            <div class="form-check ps-2">
+            <label class="form-check-label ps-2">Addresses</label>
+            </div>
+          </div>
+        </li> 
+        <li>
+          <div class="d-flex my-1">
+            <input type="checkbox" id="Functional Areas" value ="Functional Areas" class = "themesnav_cls" checked= "true"/>
+            <label for="Functional Areas" class="mx-0 rounded-circle w-10 checkboxlabel"><img src="../assets/img/leftpaneicons/sidebarimg-4.png" class="img-fluid"/></label>
+            <div class="form-check ps-2">
+            <label class="form-check-label ps-2">Functional Areas</label>
+            </div>
+          </div>
+        </li> 
+        <li>
+          <div class="d-flex my-1">
+            <input type="checkbox" id="BuildingsAndSettlements" value ="Buildings and Settlements" class = "themesnav_cls"/>
+            <label for="BuildingsAndSettlements" class="mx-0 rounded-circle w-10 checkboxlabel"><img src="../assets/img/leftpaneicons/sidebarimg-5.png" class="img-fluid"/></label>
+            <div class="form-check ps-2">
+            <label class="form-check-label ps-2">Buildings / Settlements</label>
+            </div>
+          </div>
+        </li> 
+        <li>
+          <div class="d-flex my-1">
+            <input type="checkbox" id="Land Parcels" value ="Land Parcels" class = "themesnav_cls"/>
+            <label for="Land Parcels" class="mx-0 rounded-circle w-10 checkboxlabel"><img src="../assets/img/leftpaneicons/sidebarimg-6.png" class="img-fluid"/></label>
+            <div class="form-check ps-2">
+            <label class="form-check-label ps-2">Land parcels / properties</label>
+            </div>
+          </div>
+        </li> 
+        <li>
+          <div class="d-flex my-1">
+            <input type="checkbox" id="Transport Networks" value ="Transport Networks" class = "themesnav_cls"/>
+            <label for="Transport Networks" class="mx-0 rounded-circle w-10 checkboxlabel"><img src="../assets/img/leftpaneicons/sidebarimg-7.png" class="img-fluid"/></label>
+            <div class="form-check ps-2">
+            <label class="form-check-label ps-2">Transport Networks</label>
+            </div>
+          </div>
+        </li> 
+        <li>
+          <div class="d-flex my-1">
+            <input type="checkbox"  id="Elevation and depth" value ="Elevation and depth" class = "themesnav_cls"/>
+            <label for="Elevation and depth" class="mx-0 rounded-circle w-10 checkboxlabel"><img src="../assets/img/leftpaneicons/sidebarimg-8.png" class="img-fluid"/></label>
+            <div class="form-check ps-2">
+            <label class="form-check-label ps-2">Elevation and depth</label>
+            </div>
+          </div>
+        </li> 
+        <li>
+          <div class="d-flex my-1">
+            <input type="checkbox" id="Population Distribution" value ="Population distribution" class = "themesnav_cls"/>
+            <label for="Population Distribution" class="mx-0 rounded-circle w-10 checkboxlabel"><img src="../assets/img/leftpaneicons/sidebarimg-9.png" class="img-fluid"/></label>
+            <div class="form-check ps-2">
+            <label class="form-check-label ps-2">Population distribution </label>
+            </div>
+          </div>
+        </li> 
+        <li>
+          <div class="d-flex my-1">
+            <input type="checkbox" id="Land Cover and Use" value ="Land Cover and Use" class = "themesnav_cls"/>
+            <label for="Land Cover and Use" class="mx-0 rounded-circle w-10 checkboxlabel"><img src="../assets/img/leftpaneicons/sidebarimg-10.png" class="img-fluid"/></label>
+            <div class="form-check ps-2">
+            <label class="form-check-label ps-2">Land Cover and Use</label>
+            </div>
+          </div>
+        </li> 
+         
+        <li>
+          <div class="d-flex my-1">
+            <input type="checkbox" id="Physical Infrastructure" value ="Physical Infrastructure" class = "themesnav_cls"/>
+            <label for="Physical Infrastructure" class="mx-0 rounded-circle w-10 checkboxlabel"><img src="../assets/img/leftpaneicons/sidebarimg-12.png"style="width: 38px; height: 38px;"/></label>
+            <div class="form-check ps-2 p-0">
+            <label class="form-check-label ps-2">Physical infrastructure / service delivery points</label>
+            </div>
+          </div>
+        </li> 
+        <li>
+          <div class="d-flex my-1">
+            <input type="checkbox" id="Water" value ="Water" class = "themesnav_cls"/>
+            <label for="Water" class="mx-0 rounded-circle w-10 checkboxlabel"><img src="../assets/img/leftpaneicons/sidebarimg-13.png" class="img-fluid"/></label>
+            <div class="form-check ps-2">
+            <label class="form-check-label ps-2">Water</label>
+            </div>
+          </div>
+        </li> 
+        <li>
+          <div class="d-flex my-1">
+            <input type="checkbox" id="Orthoimagery" value ="Orthoimagery" class = "themesnav_cls"/>
+            <label for="Orthoimagery" class="mx-0 rounded-circle w-10 checkboxlabel"><img src="../assets/img/leftpaneicons/sidebarimg-14.png" class="img-fluid"/></label>
+            <div class="form-check ps-2">
+            <label class="form-check-label ps-2">Imagery</label>
+            </div>
+          </div>
+        </li> 
+        <li>
+          <div class="d-flex my-1">
+            <input type="checkbox" id="Others" value ="Others" class = "themesnav_cls"/>
+            <label for="Others" class="mx-0 rounded-circle w-10 checkboxlabel"><img src="../assets/img/leftpaneicons/sidebarimg-14.png" class="img-fluid"/></label>
+            <div class="form-check ps-2">
+            <label class="form-check-label ps-2">Others</label>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <ul id="themes-nav2" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+
+      </ul>
+    </li><!-- End Components Nav --> 
+    <li class="nav-item" id = "villegeListId" style="display:none;">
+      <a class="nav-link collapsed" data-bs-target="#villageList-nav" data-bs-toggle="collapse" href="#">
+        <i class="bi bi-list-ul"></i><span>Village List</span><i class="bi bi-chevron-down ms-auto"></i>
+      </a>
+      <ul id="villageList-nav" class="nav-content collapse show" data-bs-parent="#sidebar-nav">
+        <li>
+          <ul class="list-group">
+            <li>
+              <div class="d-flex my-1">
+                <input type="checkbox" id="villege1" value ="Village-1" name="village1" class = "villagelist_cls" checked/>
+             
+                <label for="villege1" class="mx-0 rounded-circle w-10 checkboxlabel"><img src="../assets/img/leftpaneicons/village.png" class="img-fluid"/></label>
+                <div class="form-check ps-2">
+                <label class="form-check-label ps-2">Village-1</label>
+                </div>
+              </div>
+            </li> 
+            <li>
+              <div class="d-flex my-1">
+                <input type="checkbox" id="village-2" value ="Village-2" class = "villagelist_cls"/>
+                <label for="village-2" class="mx-0 rounded-circle w-10 checkboxlabel"><img src="../assets/img/leftpaneicons/village.png" class="img-fluid"/></label>
+                <div class="form-check ps-2">
+                <label class="form-check-label ps-2">Village-2</label>
+                </div>
+              </div>
+            </li> 
+            <li>
+              <div class="d-flex my-1">
+                <input type="checkbox" id="village-3" value ="Village-3" class = "villagelist_cls"/>
+                <label for="village-3" class="mx-0 rounded-circle w-10 checkboxlabel"><img src="../assets/img/leftpaneicons/village.png" class="img-fluid"/></label>
+                <div class="form-check ps-2">
+                <label class="form-check-label ps-2">Village-3</label>
+                </div>
+              </div>
+            </li> 
+            <li>
+              <div class="d-flex my-1">
+                <input type="checkbox" id="village-4" value ="Village-4" class = "villagelist_cls"/>
+                <label for="village-4" class="mx-0 rounded-circle w-10 checkboxlabel"><img src="../assets/img/leftpaneicons/village.png" class="img-fluid"/></label>
+                <div class="form-check ps-2">
+                <label class="form-check-label ps-2">Village-4</label>
+                </div>
+              </div>
+            </li> 
+            <li>
+              <div class="d-flex my-1">
+                <input type="checkbox" id="village-5" value ="Village-5" class = "villagelist_cls"/>
+                <label for="village-5" class="mx-0 rounded-circle w-10 checkboxlabel"><img src="../assets/img/leftpaneicons/village.png" class="img-fluid"/></label>
+                <div class="form-check ps-2">
+                <label class="form-check-label ps-2">Village-5</label>
+                </div>
+              </div>
+            </li> 
+          </ul>
+        </li> 
+      
+      </ul>
+    </li><!-- End Components Nav -->
+    <li class="nav-item d-none">
+      <a class="nav-link collapsed" data-bs-target="#themes-nav2" data-bs-toggle="collapse" href="#">
+        <i class="bi bi-list-task"></i><span>Themes</span><i class="bi bi-chevron-down ms-auto"></i>
+      </a>
+      <ul id="themes-nav2" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+
+      </ul>
+    </li><!-- End Components Nav -->
+  </ul>
+</aside><!-- End Sidebar-->
+
+<div id="main" class="main">
+  <!--<div id="preloader" class="shadow"><h3 class="text-center pt-5">Loading Datasets<span class="AnimatedEllipsis"></span></h3></div>-->
+  <div class="row">
+    <div class="col-9 col-sm-10 col-md-11">
+      <div class="search-bar">
+        <form class="search-form d-flex align-items-center" method="POST" action="#">
+          <input id="myInput" type="text" name="query" placeholder="Search for data . . ." title="Enter search keyword">
+          <button type="button" title="Search" class="text-dark" id="imgrecordsearch"><i class="bi bi-search text-secondary"></i></button>
+        </form>
+      </div>
+  
+    </div>
+    <div class="col-3 col-sm-2 col-md-1">
+      <ul class="list-group list-group-horizontal float-end" style="margin-top: 2px;">
+        <li class="list-group-item p-0 me-1 border-0"><button class="btn btn-sm btn-primary active me-1" autofocus id="listviewofpod" title="List"><i class="bi bi-list-task"></i></button></li>
+        <li class="list-group-item p-0 border-0"><button class="btn btn-sm btn-primary" id="gridviewofpod" title="Grid"><i class="bi bi-grid"></i></button></li>
+      </ul>
+    </div>
+      <hr class="mt-3">
+  </div>
+<div class="row">
+  <div class="pagetitle">
+    <h1>Datasets</h1>
+    <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+        <li class="breadcrumb-item active"><a href="#">Datasets</a></li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+  <section class="section dashboard">
+
+  <!-- <div class="col-md-12 listandgridview">
+      <div class="card pb-0">
+            
+      <div class="card-header" style="background-color: #0d6efd80;"><h5 class="card-title my-0 py-0"><i><img src= "' + datatype_img + '" class="me-2" style="width:35px; height:35px;"/></i>' + metadata_title + ''
+      </h5></div>
+
+      
+      <div class="card-body px-3">
+      <div class="d-flex flex-row align-items center flexclass">
+      <div class="col-12 col-sm-3 col-md-2"><img src= "' + imageval + '" class="border p-1 rounded dataset_img"/></div>
+
+      <div class="col-12 col-sm-5 col-md-7 card-text">
+      <div class="d-flex flex-wrap h-100 w-100">
+      <div class="w-100">
+      data
+      </div>
+      <a class="w-100 text-end align-content-end" href="../adminusers/document_mediainfo.html" onclick="Displaymetadatadocs(\'' + metadata_title + '\',\'' + dataset_deptName + '\',\'' + dataset_description + '\',\'' + dataset_themeName + '\',\'' + dataset_uploadedBy + '\',\'' + dataset_uploadedDate + '\',\'' + dataset_updatedby + '\',\'' + dataset_updateddate + '\')" >Continue Reading..</a></div>  
+      </div>
+      <div class="col-12 col-sm-4 col-md-3">
+        <div class="d-flex flex-wrap align-content-center justify-content-center h-100">
+      <a href=#" title="Download" onclick="ViewDocMediaFiles(\'' + metadata_title + '\',\'' + datset_filepath + '\',\'' + fileext + '\')" class="btn btn-primary text-center align-content-center me-3" style="font-size: 24px;"><i class="bi bi-eye"></i></a>
+     <a href=#" title="Download" onclick="DownloadDocMediaFiles(\'' +  dataset_themeName + '\',\'' +  datset_filepath + '\',\'' + fileext + '\',\'' + metadata_title + '\')" class="btn btn-primary text-center align-content-center" style="font-size: 24px;"><i class="bi bi-download"></i></a>
+      </div>
+      </div>
+      </div>
+      </div>
+      </div>
+      </div>-->
+  <!--   <div class="row"> -->
+      <!-- <div class="row">
+        <div class="col-md-12">
+          <div class="card pb-0">
+         
+         <div class="card-header"><h5 class="card-title my-0 py-0"><i class="bi bi-window-dock me-2"></h5></div>
+          <div class="card-body py-2 px-3">
+         <div class="d-flex flex-row align-items center flexclass">
+          <div><img src= "" class="border p-1 rounded dataset_img"/></div>
+          <div class="card-text p-3 flex-grow-1">
+         <a class="float-end mt-3 px-3" href="continueReading.html" >Continue Reading..</a></div>
+         </div>
+         </div>
+
+
+       <div class="card-footer py-1">
+          <div class="clearfix">
+        
+          <div class="float-end">
+         <div><a href="#" class="btn btn-sm btn-outline-primary m-0 px-1"><i class="bi bi-download me-1"></i>Download</a></div>
+          </div>
+         </div>
+         </div>
+
+          </div>
+         
+
+      </div>
+      </div> -->
+      <!-- Left side columns -->
+      <div class="row" id="baseclassDiv">
+        
+       
+    </div>
+  </section>
+
+</div><!-- End #main -->
+
+<!-- ======= Footer ======= -->
+<footer id="footer" class="footer p-2 fixed-bottom">
+  <div class="copyright">
+    &copy; Copyright 2021 <a href="index.html"><strong><span>NIUE  Geoportal</span></strong></a><span>. Designed by <a href="https://www.iictechnologies.com/">IIC Technologies.</a></span> All Rights Reserved
+  
+  </div>
+ 
+</footer><!-- End Footer -->
+<div class="modal" id="myModal_loginredirect">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+
+      <!-- Modal body -->
+      <div class="modal-body p-2">
+        <div class="text-center display-5 mb-3 texticon">
+         
+         </div>
+         <p class="mb-0 font-weight-light customtext text-center w-100"></p>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer p-1 justify-content-center">
+        <button type="button" class="btn btn-primary btnclear" data-bs-dismiss="modal" onClick="closeAfterRedirect();">OK</button>
+      </div>
+
+    </div>
+  </div>
+     </div>
+     <div class="modal" id="myModal">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+    
+          <!-- Modal body -->
+          <div class="modal-body p-2">
+            <div class="text-center display-5 mb-3 texticon">
+              
+             </div>
+             <p class="mb-0 font-weight-light customtext text-center w-100"></p>
+          </div>
+    
+          <!-- Modal footer -->
+          <div class="modal-footer p-1 justify-content-center">
+            <button type="button" class="btn btn-primary btnclear" data-bs-dismiss="modal">Ok</button>
+          </div>
+    
+        </div>
+      </div>
+         </div>
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+<!-- Vendor JS Files -->
+<script src="../assets/vendor/apexcharts/apexcharts.min.js"></script>
+<script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/vendor/chart.js/chart.min.js"></script>
+<script src="../assets/vendor/echarts/echarts.min.js"></script>
+<script src="../assets/vendor/quill/quill.min.js"></script>
+<script src="../assets/vendor/simple-datatables/simple-datatables.js"></script>
+<script src="../assets/vendor/tinymce/tinymce.min.js"></script>
+
+<!-- Template Main JS File -->
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/common.js"></script>
+<script>
+  $(document).ready(function(){
+    $("#listviewofpod").click(function(){
+      $(".listandgridview").removeClass("col-md-6");
+      $(".listandgridview").addClass("col-md-12");
+      $(".flexclass").addClass("flex-row");
+    $(".flexclass").removeClass("flex-row-reverse");
+    $(".qrcodeimg2").hide();
+    $(".qrcodeimg1").show();
+
+    });
+    $("#gridviewofpod").click(function(){
+        $(".listandgridview").removeClass("col-md-12");
+      $(".listandgridview").addClass("col-md-6");
+     $(".flexclass").addClass("flex-row-reverse");
+    $(".flexclass").removeClass("flex-row");
+    $(".qrcodeimg2").show();
+    $(".qrcodeimg1").hide();
+      });
+      
+      var user =localStorage.getItem('Username');
+      var role =localStorage.getItem('Role');
+      var department =localStorage.getItem('Department');
+      $(".showUserName").text(user);
+      $('#roleLabel').html(role+" ,"+department);
+      
+  });
+  </script>
+</body>
+</html>

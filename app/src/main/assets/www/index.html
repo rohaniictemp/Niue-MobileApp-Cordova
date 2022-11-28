@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>NIUE Geoportal</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/homepage.css" rel="stylesheet">
+</head>
+
+<body style="background: url('assets/img/soft-kill.png');">
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center header-transparent">
+    
+        <nav class="navbar navbar-dark navbar-expand-md bg-niueblue fixed-top d-flex align-items-center">          <div class="container">
+              
+          <!-- <a href="../index.html" class="logo d-flex align-items-center">
+				<img src="assets/img/logo.png" alt="" class="bg-white" style="border-radius: 4px;"/>
+              <span class="d-none d-lg-block">NIUE Geoportal</span>
+            </a>-->
+			<!-- <a href="../index.html" class="logo d-flex align-items-center" style="position: relative;">
+              <div class="logoposition"><img src="assets/img/logo.png" alt="" class="logo_img"></div>
+              <span class="d-none d-lg-block spanposition">NIUE Geoportal</span>
+			  
+            </a>-->
+ 
+        <!-- <div style="position: absolute; top: 10px; width:100px; height: 100px; border-radius: 4px; background-color: #fff;">
+              
+            <a href="../index.html" class="logo d-flex align-items-center"  style="position: relative; top: 50%; left:50%; transform: translate(-44%, -50%);">
+              <img src="assets/img/logo.png" alt="" style="max-height: 78px;">
+              <span class="d-none d-lg-block">NIUE Geoportal</span>
+            </a>
+          </div>-->
+		 <!--  <div style="position: absolute; top: 10px; width:100px; height: 100px;">
+              
+            <a href="../index.html" class="logo d-flex align-items-center"  style="position: relative; top: 50%; left:50%; transform: translate(-44%, -50%);">
+              <img src="assets/img/logo.png" alt="" style="max-height: 78px;">
+              <span class="d-none d-lg-block" style="color: #274899;margin-top:24px;">Potaaga Fakailoaaga </br> Ma e Levekiaga he Takatakaimotu
+			  <p class="p-0 m-0 small" style="color: #229f21; font-size:18px;">Environment Information Management System</p></br>
+			</span>
+            </a>
+          </div>-->
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse header-nav bg-niueblue" id="mynavbar">
+              <ul class="navbar-nav justify-content-end w-100">
+        <li class="nav-item">
+          <a class="nav-link scrollto nav-icon active" href="#banner">
+            <span class="me-1"><i class="bi bi-house-door"></i></span>
+            <span class="ps-1">Home</span>
+          </a>
+        </li>
+	    	<li class="nav-item">
+          <a class="nav-link scrollto" href="./publicusers/preloginsearch.html">
+            <span class="me-1"><i class="bi bi-search"></i></span>
+            <span class="ps-1">Search</span>
+          </a>
+        </li>
+		    <li class="nav-item">
+          <a class="nav-link scrollto" href="map.html" target="_blank">
+            <span class="me-1"><i class="bi bi-globe2"></i></span>
+            <span class="ps-1">Map</span>
+          </a>
+        </li>
+	    	<li class="nav-item">
+          <a class="nav-link scrollto" href="#about">
+            <span class="me-1"><i class="bi bi-info-circle"></i></span>
+            <span class="ps-1">About</span>
+          </a>
+        </li>
+       <!--  <li class="nav-item dropdown">
+          <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
+            <span class="me-1"><i class="bi bi-plus-lg"></i></span>
+            <span class="ps-1 dropdown-toggle">Contribute</span>
+          </a>
+            <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+           
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+             <li>
+              <a class="dropdown-item d-flex align-items-center" href="../adminusers/09-afterclickingaddnewrecord.html">
+                <i class="bi bi-plus-lg"></i>
+                <span>Add new record</span>
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="../adminusers/08-afterclickingcontributebtn.html">
+                <i class="bi bi-box-arrow-down"></i>
+                <span>Import new records</span>
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+             <li>
+              <a class="dropdown-item d-flex align-items-center" href="../adminusers/10-afterclickingcreate.html">
+                <i class="bi bi-list-task"></i>
+                <span>Manage directory</span>
+              </a>
+            </li>
+           </ul>
+        </li>
+        
+         <li class="nav-item">
+          <a class="nav-link nav-icon" href="../adminusers/12-clickonAdminConsole.html">
+            <span class="me-1"><i class="bi bi-grid-3x3-gap"></i></span>
+            <span class="ps-1">Admin Console</span>
+          </a>
+        </li>-->
+		
+       <!--  <li class="nav-item dropdown pe-3">
+
+          <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+           
+             <span class="rounded-circle"><i class="bi bi-person-circle" style="font-size:20px;"></i></span>
+            <span class="d-md-block dropdown-toggle ps-2 showUserName"></span>
+          </a>
+
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+            <li class="dropdown-header">
+              <h6 class="showUserName"></h6>
+              <span><p class="ps-1 mb-0"><span id="roleLabel"></span></p></span>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+           
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="#">
+                <i class="bi bi-question-circle"></i>
+                <span>Need Help?</span>
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="#">
+                <i class="bi bi-box-arrow-right"></i>
+                <span><div id="logoutbutton" onClick="logout()";>Logout</div></span>
+              </a>
+            </li>
+
+          </ul>
+        </li>-->
+		 <li class="nav-item">
+          <a class="nav-link scrollto" href="publicusers/loginpage.html">
+            <span class="me-1"><i class="bi bi-box-arrow-in-left"></i></span>
+            <span class="ps-1">Login</span>
+          </a>
+        </li>
+          </ul>
+   </div>
+   </div>
+    </nav>
+</header>
+  <!-- ======= Hero Section ======= -->
+  <section id="banner">
+    <div class="bannervideo height_img">
+	   <video autoplay muted loop id="bannerVideo" class="d-lg-block d-md-block">
+        <source src="assets/videos/alofi_gif_old.mp4" type="video/mp4">
+      </video>
+ 
+	  </div>
+    <div class="container">
+      <div class="row justify-content-between">
+        <div class="col-lg-11 pt-1 pt-lg-0 order-2 order-lg-1 d-flex align-items-center" style="z-index:99;">
+		<div class="banner_title">
+			<div class="banner_logo">
+				<img src="assets/img/logo.png" class="img-fluid" alt="Niue Logo"/>
+			</div>
+			
+		 <div data-aos="zoom-out">
+		  <div class="section-title pb-1" data-aos="fade-up">
+          <p class="banner_text_line_1 textshadow">Potaaga Fakailoaaga <br> Ma e Levekiaga he Takatakaimotu</p>
+          
+        </div>
+            <h2 class="banner_text_line_2 textshadow">Environment Information Management System</h2>
+			
+         
+          </div>
+		</div>
+		 
+        </div>
+        <div class="col-lg-1 order-1 order-lg-2 hero-img height_img" data-aos="zoom-out" data-aos-delay="300">
+          <div class="d-none d-lg-block" style="height: 300px;"></div>
+        </div>
+      </div>
+    </div>
+
+    <svg class="hero-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28 " preserveAspectRatio="none">
+      <defs>
+        <path id="wave-path" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z">
+      </defs>
+      <g class="wave1">
+        <use xlink:href="#wave-path" x="50" y="3" fill="rgba(255,255,255, .1)">
+      </g>
+      <g class="wave2">
+        <use xlink:href="#wave-path" x="50" y="0" fill="rgba(255,255,255, .2)">
+      </g>
+      <g class="wave3">
+        <use xlink:href="#wave-path" x="50" y="9" fill="#fff">
+      </g>
+    </svg>
+
+  </section><!-- End Hero -->
+
+  <main id="main">
+    <!-- ======= Departments Section ======= -->
+    <section id="Departments" class="team">
+      <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+          <h2>Departments</h2>
+          <p>Our Services</p>
+        </div>
+
+        <div class="row" data-aos="fade-left">
+
+          <div class="col-lg-3 col-md-6">
+            <div class="member" data-aos="zoom-in" data-aos-delay="100">
+             <a href="./publicusers/preloginsearch.html" onclick="onClickDept(EIMSId)">
+              <div class="pic"><img src="assets/img/01-eims.jpg" class="img-fluid dept_img_width" alt="EIMS"></div>
+              <div class="member-info">
+                <h4>EIMS</h4>
+              </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 mt-5 mt-md-0">
+            <div class="member" data-aos="zoom-in" data-aos-delay="200">
+              <a href="./publicusers/preloginsearch.html" onclick="onClickDept(MetId)">
+              <div class="pic"><img src="assets/img/02-metoffice.jpg" class="img-fluid dept_img_width" alt="Met Ofice"></div>
+              <div class="member-info">
+                <h4>Met Office</h4>
+              </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
+            <div class="member" data-aos="zoom-in" data-aos-delay="300">
+              <a href="./publicusers/preloginsearch.html" onclick="onClickDept(EducationId)">
+              <div class="pic"><img src="assets/img/03-education.jpeg" class="img-fluid dept_img_width" alt="Education"></div>
+              <div class="member-info">
+                <h4>Education</h4>
+              </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
+            <div class="member" data-aos="zoom-in" data-aos-delay="400">
+              <a href="./publicusers/preloginsearch.html" onclick="onClickDept(EnvironmentId)">
+              <div class="pic"><img src="assets/img/04-environment.jpg" class="img-fluid dept_img_width" alt="Environment"></div>
+              <div class="member-info">
+                <h4>Environment</h4>
+              </div>
+              </a>
+            </div>
+          </div>
+
+        </div>
+		<div class="row" data-aos="fade-left" style="margin-top:34px;">
+          <div class="col-lg-3 col-md-6">
+            <div class="member" data-aos="zoom-in" data-aos-delay="100">
+              <a href="./publicusers/government_forms.html">
+              <div class="pic"><img src="assets/img/05-govtprojects.jpg" class="img-fluid dept_img_width" alt="Government Projects"></div>
+              <div class="member-info">
+                <h4>Government Projects</h4>
+              </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 mt-5 mt-md-0">
+            <div class="member" data-aos="zoom-in" data-aos-delay="200">
+              <a href="./publicusers/preloginsearch.html" onclick="onClickDept(healthid)">
+              <div class="pic"><img src="assets/img/06-health.jpg" class="img-fluid dept_img_width" alt="Health"></div>
+              <div class="member-info">
+                <h4>Health</h4>
+              </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
+            <div class="member" data-aos="zoom-in" data-aos-delay="300">
+              <a href="./publicusers/preloginsearch.html" onclick="onClickDept(InfrastructureId)">
+              <div class="pic"><img src="assets/img/07-infrastructure.jpg" class="img-fluid dept_img_width" alt="Telecom"></div>
+              <div class="member-info">
+                <h4>Infrastructure</h4>
+              </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
+            <div class="member" data-aos="zoom-in" data-aos-delay="400">
+              <a href="./publicusers/preloginsearch.html" onclick="onClickDept(Community_Affairs)">
+              <div class="pic"><img src="assets/img/08-communityaffairs.jpeg" class="img-fluid dept_img_width" alt="Community Affairs"></div>
+              <div class="member-info">
+                <h4>Community Affairs</h4>
+              </div>
+              </a>
+            </div>
+          </div>
+          </div>
+          <div class="row" data-aos="fade-left" style="margin-top:34px;">
+          <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
+            <div class="member" data-aos="zoom-in" data-aos-delay="400">
+              <a href="./publicusers/preloginsearch.html">
+              <div class="pic"><img src="assets/img/09-oceans.jpg" class="img-fluid dept_img_width" alt="Oceans"></div>
+              <div class="member-info">
+                <h4>Oceans</h4>
+              </div>
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
+            <div class="member" data-aos="zoom-in" data-aos-delay="400">
+              <a href="./publicusers/preloginsearch.html">
+              <div class="pic"><img src="assets/img/10-non-govt-org.jpg" class="img-fluid dept_img_width" alt="Non-Government Organisations"></div>
+              <div class="member-info">
+                <h4>Non-Government Organisations</h4>
+              </div>
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
+            <div class="member" data-aos="zoom-in" data-aos-delay="400">
+              <a href="./publicusers/preloginsearch.html">
+              <div class="pic"><img src="assets/img/11-culture-heritage.jpg" class="img-fluid dept_img_width" alt="Culture and Heritage"></div>
+                <div class="member-info">
+                  <h4>Culture and Heritage</h4>
+              </div>
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
+            <div class="member" data-aos="zoom-in" data-aos-delay="400">
+              <a href="./publicusers/elibrary.html">
+              <div class="pic"><img src="assets/img/12-eLibrary.jpg" class="img-fluid dept_img_width" alt="eLibrary"></div>
+              <div class="member-info">
+                <h4>eLibrary</h4>
+              </div>
+              </a>
+            </div>
+          </div>
+
+        </div>
+        <div class="row" data-aos="fade-left" style="margin-top:34px;">
+          <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
+            <div class="member" data-aos="zoom-in" data-aos-delay="400">
+              <a href="publicusers/villageinformation.html">
+              <div class="pic"><img src="assets/img/13-villageinfo.jpg" class="img-fluid dept_img_width" alt="Village Information"></div>
+              <div class="member-info">
+                <h4>Village Information</h4>
+              </div>
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
+            <div class="member" data-aos="zoom-in" data-aos-delay="400">
+              <a href="publicusers/3dvisualization.html">
+              <div class="pic"><img src="assets/img/14-3Dvisualization.jpg" class="img-fluid dept_img_width" alt="3D Visualization"></div>
+              <div class="member-info">
+                <h4>3D Visualization</h4>
+              </div>
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
+            <div class="member" data-aos="zoom-in" data-aos-delay="400">
+              <a href="https://naavic.net/">
+              <div class="pic"><img src="assets/img/15-naavic.jpg" class="img-fluid dept_img_width" alt="NaAVIC"></div>
+              <div class="member-info">
+                <h4>NaAVIC</h4>
+              </div>
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">&nbsp;</div>
+          <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
+            <div class="section-title text-end d-flex flex-wrap align-content-end h-100 justify-content-end" data-aos="fade-up">
+              <a href="publicusers/relevantlinks.html" class="relative-link">Relevant Links<i class="bi bi-arrow-right-short align-middle" style="font-size: 35px; font-weight: 700;"></i></a>
+            </div>
+          </div>
+        </div>
+       
+      </div>
+    </section><!-- End departments Section -->
+
+
+       <!-- ======= About Section ======= -->
+       <section id="about" class="about pb-5">
+        <div class="container">
+          <div class="section-title" data-aos="fade-up">
+            <h2>About</h2>
+            <p>About Niue</p>
+          </div>
+          <div class="row">
+            <div class="col-xl-5 col-lg-6 d-flex justify-content-center align-items-stretch" data-aos="fade-right">
+              <img src="assets/img/about.jpg" class="img-thumbnail" alt="About Section Image"/>
+            </div>
+  
+            <div class="col-xl-7 col-lg-6 icon-boxes d-flex flex-column align-items-stretch justify-content-center py-5 px-lg-5" data-aos="fade-left">
+              <h3>About Niue</h3>
+              <p>Niue is an island nation in the South Pacific Ocean. Niue's land area is about 261 square kilometres (101 sq mi) with a resident population of approximately 1800 people.</br>
+              </br>
+                Niue is a self-governing democratic state in free association with New Zealand. Niuean’s are citizens of New Zealand and between 90% and 95% of Niuean people live in New Zealand. Niue is a bilingual country, with 30% of the population speaking both Niuean and English.</br>
+              </br>
+                Niue is not a member of the United Nations (UN), but UN organisations have accepted its status as a freely associated state as equivalent to independence for the purposes of international law.</br>
+              </br>
+                Niue is sub-divided into 14 villages (municipalities), with each village having a council that elects
+                
+                its chairperson.</p>
+  
+              <div class="icon-box" data-aos="zoom-in" data-aos-delay="100">
+                <div class="icon"><i class="bx bx-globe"></i></div>
+                <h4 class="title"><a href="">Geographical Information</a></h4>
+                <p class="description">Niue is one of the world's largest coral Islands. Niue has two levels, with the higher level made up of a limestone cliff running along the coast, with a plateau in the centre of the island reaching approximately 60 metres (200 feet) above sea level. The lower level is a coastal terrace approximately 0.5 km (0.3 miles) wide and about 25–27 metres (80–90 feet) high, which slopes down and meets the sea in small cliffs. A coral reef surrounds the island, with the only major break in the reef being in the central western coast, close to the capital, Aolfi.</p>
+              </div>
+  
+              <div class="icon-box" data-aos="zoom-in" data-aos-delay="200">
+                <div class="icon"><i class="bx bxs-tree"></i></div>
+                <h4 class="title"><a href="">Environment</a></h4>
+                <p class="description">Niue is a leader in green growth, with a focus on solar power provision. The Niue Island Organic Farmers Association is committed to making Niue the world's first fully organic nation.</br>
+                </br>
+                  Niue is part of the Tongan tropical moist forests terrestrial ecoregion. The island is home to approximately 60 native or pre-European plants, and approximately 160 naturalised flowering plant species.</br>
+                </br>
+                  The Huvalu Forest Conservation Area is a 5,400 ha site that protects the largest area of primary forest in Niue. It has been designated an Important Bird Area (IBA) by BirdLife International.</br>
+                </br>
+                  Niue and its communities proudly champion sustainability and good environmental practices, with many locally and internationally driven environmentally focussed projects in place on the island and in its surrounding oceans.</p>
+              </div>
+  
+              <div class="icon-box" data-aos="zoom-in" data-aos-delay="300">
+                <div class="icon"><i class="bx bxs-ship"></i></div>
+                <h4 class="title"><a href="">Tourism</a></h4>
+                <p class="description">Tourism is already one of the major industries in Niue, however tourism has been defined as of the three priority economic sectors of Niue economic development, the other two being are fisheries and agriculture. With its pristine oceans, inviting climate, stunning and unique flora and fauna, and friendly welcoming people Niue is an excellent and unique tourist destination. Supported by a single international airport with periodic flights to the island, and with a variety of accommodation options, Niue is well worth visiting.</p>
+              </div>
+  
+            </div>
+          </div>
+  
+        </div>
+      </section><!-- End About Section -->
+  </main><!-- End #main -->
+
+   <!-- ======= Footer ======= -->
+  <div class="shape-bottom" data-negative="true">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none">
+<path class="elementor-shape-fill" d="M790.5,93.1c-59.3-5.3-116.8-18-192.6-50c-29.6-12.7-76.9-31-100.5-35.9c-23.6-4.9-52.6-7.8-75.5-5.3
+c-10.2,1.1-22.6,1.4-50.1,7.4c-27.2,6.3-58.2,16.6-79.4,24.7c-41.3,15.9-94.9,21.9-134,22.6C72,58.2,0,25.8,0,25.8V100h1000V65.3
+c0,0-51.5,19.4-106.2,25.7C839.5,97,814.1,95.2,790.5,93.1z"></path>
+</svg>		</div>
+  <footer id="footer">
+    <div class="container">
+      <div class="logo text-center">
+        <a href="index.html"><img src="assets/img/logo.png" alt="Niue Logo" class="me-1 mb-1 p-1 bg-white" style="border-radius: 4px; width: 150px;"></a>
+      </div>
+      <div class="copyright">
+        &copy; Copyright <a href="#" class="text-white"><strong><span>NIUE Geoportal</span></strong></a>. All Rights Reserved
+      </div>
+      <div class="credits">
+        Designed by <a href="https://iictechnologies.com/" class="text-white">IIC Technologies.</a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/purecounter/purecounter.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+ 
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/homepage.js"></script>
+  <script>
+    var bvid = document.getElementById("bannerVideo");
+    var MetId = "Met Office";
+    var EIMSId = "EIMS";
+    var EnvironmentId = "Environment";
+    var EducationId = "Education";
+    var healthid = "Health";
+    var Community_Affairs = "Community Affairs";
+    var InfrastructureId= "Infrastructure";
+     
+    function onClickDept(dept)
+    {
+      /* var deptnme = localStorage.getItem('deptname');
+        alert(deptnme); */
+        localStorage.setItem('deptname', dept);   
+        //alert(dept);
+    }
+   // bvid.playbackRate = 2.0;
+  </script>
+</body>
+
+</html>

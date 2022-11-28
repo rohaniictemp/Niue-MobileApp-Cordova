@@ -1,0 +1,93 @@
+{
+  "homeCamera": {
+//niue island
+    "north": -18.92447,
+    "east": 190.31136,
+    "south":-19.18862,
+    "west": 189.98589 
+  },
+  "catalog": [
+    {
+      "type": "wms-group",
+      "name": "Buildings/Settlements", 
+     "url": "http://14.142.106.205:8080/geoserver/BuildingsAndSettlements/wms"
+   
+    },    
+     {
+      "type": "wms-group",
+      "name": "Land Cover and Use",      
+     "url": "http://14.142.106.205:8080/geoserver/LandCoverLandUse/wms"     
+    },
+    {
+      "type": "wms-group",
+      "name": "Geographical Names",      
+     "url": "http://14.142.106.205:8080/geoserver/GeographicalNames/wms"     
+    },
+    {
+      "type": "wms-group",
+      "name": "Functional Areas",      
+     "url": "http://14.142.106.205:8080/geoserver/FunctionalAreas/wms"     
+    },
+    {
+      "type": "wms-group",
+      "name": "Geology/Soils",      
+     "url": "http://14.142.106.205:8080/geoserver/GeologyandSoils/wms"     
+    }, 
+    {
+      "type": "wms-group",
+      "name": "Land parcels/properties",      
+     "url": "http://14.142.106.205:8080/geoserver/LandParcels/wms"     
+    },
+    {
+      "type": "wms-group",
+      "name": "Physical infrastructure/service delivery points",      
+     "url": "http://14.142.106.205:8080/geoserver/PhysicalInfrastructure/wms"     
+    },
+    {
+      "type": "wms-group",
+      "name": "Transport Networks",      
+     "url": "http://14.142.106.205:8080/geoserver/TransportNetworks/wms"     
+    },    
+    {
+      "type": "wms-group",
+      "name": "Water",      
+     "url": "http://14.142.106.205:8080/geoserver/Water/wms"     
+    },   
+    {
+      "type": "wms-group",
+      "name": "Others",      
+     "url": "http://14.142.106.205:8080/geoserver/Others/wms"     
+    },
+    { 
+      "ionAssetId":1073352, 
+       "name": "niue_61658930", 
+       "type": "3d-tiles",
+       "description": "niue las files des",
+      
+       "options": {
+         "maximumScreenSpaceError": 1,
+         "maximumNumberOfLoadedTiles": 1000
+       },
+       "rectangle": {
+        /*  "west": 144.868,
+         "south": -37.885,
+         "east": 145.018,
+         "north": -37.775 */
+       }
+     },
+     { 
+      "ionAssetId":1114449, 
+       "name": "niue_61308920", 
+       "type": "3d-tiles",
+       "description": "niue las files des",
+      
+       "options": {
+         "maximumScreenSpaceError": 1,
+         "maximumNumberOfLoadedTiles": 1000
+       }
+     }        
+  ],
+  "corsDomains": ["iicsrvm14.iictechnologies.local"],
+  "baseMapId": "basemap-bing-aerial-with-labels",
+  "previewBaseMapId": "basemap-positron"
+}

@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>NIUE Geoportal</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="../assets/img/favicon.png" rel="icon">
+  <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="../assets/vendor/quill/quill.snow.css" rel="stylesheet">
+  <link href="../assets/vendor/quill/quill.bubble.css" rel="stylesheet">
+  <link href="../assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="../assets/vendor/simple-datatables/style.css" rel="stylesheet">
+  <link href="../assets/css/datatables.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="../assets/css/style.css" rel="stylesheet">
+<style>
+  .dataTable > thead > tr > th[class*="sort"]:before,
+.dataTable > thead > tr > th[class*="sort"]:after {
+    content: "" !important;
+}
+#documentList.dataTable tbody th:first-child, #documentList.dataTable tbody td:first-child{
+  text-align: left;
+}
+#documentList.dataTable tbody th, #documentList.dataTable tbody td{
+  text-align: center;
+}
+</style>
+</head>
+
+<body>
+
+  <div>
+    <div class="container">
+      <!-- ======= Header ======= -->
+      <header id="header" class="header fixed-top d-flex align-items-center">
+
+        <nav class="navbar navbar-dark navbar-expand-md w-100 bg-niueblue fixed-top d-flex align-items-center">
+          <div class="container-fluid">
+            <a href="../index.html" class="logo d-flex align-items-center">
+              <img src="../assets/img/logo.png" alt="" class="bg-white me-3" style="border-radius: 4px;"/>
+              <span class="d-none d-lg-block">NIUE Geoportal</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse header-nav" id="mynavbar">
+              <ul class="navbar-nav justify-content-end w-100">
+                <li class="nav-item">
+                  <a class="nav-link nav-icon scrollto active" href="../index.html">
+                    <span class="me-1"><i class="bi bi-house-door"></i></span>
+                    <span class="ps-1">Home</span>
+                  </a><!-- End map Icon -->
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link nav-icon scrollto" href="preloginsearch.html">
+                    <span class="me-1"><i class="bi bi-search"></i></span>
+                    <span class="ps-1">Search</span>
+                  </a><!-- End map Icon -->
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link nav-icon" href="../map.html">
+                    <span class="me-1"><i class="bi bi-globe2"></i></span>
+                    <span class="ps-1">Map</span>
+                  </a><!-- End map Icon -->
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link nav-icon" href="../index.html#about">
+                    <span class="me-1"><i class="bi bi-info-circle"></i></span>
+                    <span class="ps-1">About</span>
+                  </a><!-- End map Icon -->
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link nav-icon" href="loginpage.html">
+                    <span class="me-1"><i class="bi bi-box-arrow-in-left"></i></span>
+                    <span class="ps-1">Login</span>
+                  </a><!-- End map Icon -->
+                </li>
+
+
+              </ul>
+            </div>
+          </div>
+        </nav><!-- End Icons Navigation -->
+
+      </header><!-- End Header -->
+
+      <div class="container bg-white" style="margin-top:70px;">
+
+        <div class="row">
+          <div class="w-100 clearfix">
+            <div class="float-start">
+              <div class="pagetitle mt-2">
+                <h1>eLibrary</h1>
+                 <nav>
+                   <ol class="breadcrumb mb-0">
+                     <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+                     <li class="breadcrumb-item active"><a href="#">eLibrary</a></li>
+                   </ol>
+                 </nav>
+               </div>
+            </div>
+            <div class="float-end">            
+              <div class="btn-group nav nav-tabs my-3" id="btnGroupFile">
+                <button type="button" class="btn btn-primary" id="addFileorFolder-tab" data-bs-toggle="modal" data-bs-target="#addFileorFolder" type="button"><i class="bi bi-file-earmark-plus fs-5 me-2"></i>Add</button>
+                <!--<button type="button" class="btn btn-primary" id="renameFileorFolder-tab" data-bs-toggle="modal" data-bs-target="#renameFileorFolder" type="button"><i class="bi bi-file-earmark-break fs-5 me-2"></i>Rename</button>-->
+                <button type="button" class="btn btn-primary" id="deleteFileorFolder-tab" data-bs-toggle="modal" data-bs-target="#deleteFileorFolder" type="button"><i class="bi bi-file-earmark-x fs-5 me-2"></i>Delete</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+         <div class="col-12 col-sm-12">
+           <div style="display: block; width: 100%; height: 250px; background: url(../assets/img/eLibrary/book_banner.jpg) no-repeat 0 35% /cover; overflow: hidden;">
+          &nbsp;
+          </div>
+         </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12 col-md-12">
+            <div class="card mb-3 w-100">
+              <div class="card-body p-3">
+                <table class="table" id="documentList">
+                 <thead>
+                   <tr>
+                     <th class="card-title w-50"></th>
+                     <th class="card-title w-25 text-center"></th>
+                     <th class="card-title w-25 text-center"></th>
+                   </tr>
+                 </thead>
+                <tbody>
+                  <tr>
+                    <td class="w-50"></td>
+                    <td class="w-25 text-center"></td>
+                    <td class="w-25 text-center"></td>
+                  </tr>                  
+                </table>
+              </div>
+            </div>
+          </div>    
+        </div>
+        </div>
+      </div>
+  </div><!-- End #main -->
+  <!-- ======= Footer ======= -->
+  <footer class="footer p-2 container-fluid fixed-bottom">
+    <div class="copyright">
+      &copy; Copyright 2021 <a href="../index.html"><strong><span>NIUE Geoportal</span></strong></a><span>. Designed by
+        <a href="https://www.iictechnologies.com/">IIC Technologies.</a></span> All Rights Reserved
+
+    </div>
+
+  </footer><!-- End Footer -->
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center customalert"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <div class="modal" id="deleteFileorFolder">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Delete File</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <!-- Modal body -->
+        <div class="modal-body p-2">
+          <div class="card mb-0 bg-light border">
+          <!--  <div class="card-header">
+              <div class="clearfix">
+                <div class="float-start">
+                  <div class="d-flex my-2">
+                 <div class="form-check me-3">
+                   <input class="form-check-input" type="radio" name="defileORfolder" id="deletefile" value="deletefile" checked>
+                   <label class="form-check-label" for="deletefile">
+                     File
+                   </label>
+                 </div>
+                <div class="form-check">
+                   <input class="form-check-input" type="radio" name="defileORfolder" id="deletefolder" value="deletefolder">
+                   <label class="form-check-label" for="deletefolder">
+                    Folder
+                   </label>
+                 </div>
+                 </div>
+                </div>             
+              </div>
+            </div>-->
+            <div class="card-body p-3 pt-0">
+             <form action="">
+               <div class="mb-3 mt-3">
+                <label for="deleteBasePath" class="form-label">Theme:</label>
+                <select id="deleteBasePath" class="form-control form-select" required>
+                  <option>--Select Theme--</option>
+                  <option>/okm:root/</option>                  
+                </select>
+              </div>
+              <div class="mb-3 mt-3">
+                <label for="deleteVillagePath" class="form-label">Village:</label>
+                <select id="deleteVillagePath" class="form-control form-select" required>
+                  <option>--Select Village Name--</option>
+                  <option>Village-1</option>                  
+                </select>
+              </div>
+               <!-- <div class="mb-3 mt-3">
+                 <label for="uploadeLibraryfile" class="form-label">Enter path:</label>
+                 <input type="text" class="form-control" id="inputDeleteFileorFolder" placeholder="Please enter a path for delete file / folder" name="inputDeleteFileorFolder">
+                 
+               </div>-->
+               <div class="text-center w-100">
+                <button type="button" class="btn btn-primary" onClick="deleteFolderOrDocument();">Submit</button>
+               </div>
+             </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+  <!--<div class="modal" id="renameFileorFolder">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Rename File / Folder</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        
+        <div class="modal-body p-2">
+          <div class="card mb-0 border bg-light">
+            <div class="card-header py-0">
+              <div class="clearfix">
+                <div class="float-start">
+                  <div class="d-flex my-2">
+                 <div class="form-check me-3">
+                   <input class="form-check-input" type="radio" name="refileORfolder" id="renamefile" value="renamefile" checked>
+                   <label class="form-check-label" for="renamefile">
+                     File
+                   </label>
+                 </div>
+                 <div class="form-check">
+                   <input class="form-check-input" type="radio" name="refileORfolder" id="renamefolder" value="renamefolder">
+                   <label class="form-check-label" for="renamefolder">
+                    Folder
+                   </label>
+                 </div>
+                 </div>
+                </div>             
+              </div>
+            </div>
+            <div class="card-body p-3">
+             <form action="">
+               <div class="mb-3 mt-3" id="renameInputForFolder">
+                 <label for="uploadeLibraryfile" class="form-label">Enter path:</label>
+                 <input type="text" class="form-control" id="renamefoldername" placeholder="Please enter a path for rename folder/document" name="renamefoldername">
+               </div>
+               <div class="mb-3 mt-3" id="renameInputForFile">
+                 <label for="uploadeLibraryfile" class="form-label">New Name:</label>
+                 <input type="text" class="form-control" id="newname" placeholder="Please enter a new name for rename folder/document" name="newname">
+               </div>
+             <div class="w-100 text-center">
+              <button type="button" class="btn btn-primary" onClick="renameFolderOrDocument();">Submit</button>
+             </div>  
+             </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>-->
+  <div class="modal" id="addFileorFolder">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Add File</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <!-- Modal body -->
+        <div class="modal-body p-2">
+          <div class="card mb-0">
+           <!-- <div class="card-header py-0">
+              <div class="clearfix">
+                <div class="float-start">
+                  <div class="d-flex my-2">
+                 <div class="form-check me-3">
+                   <input class="form-check-input" type="radio" name="fileORfolder" id="file" value="file" checked>
+                   <label class="form-check-label" for="file">
+                     File
+                   </label>
+                 </div>
+                 <div class="form-check">
+                   <input class="form-check-input" type="radio" name="fileORfolder" id="folder" value="folder">
+                   <label class="form-check-label" for="folder">
+                    Folder
+                   </label>
+                 </div>
+                 </div>
+                </div>             
+              </div>
+            </div>-->
+            <div class="card-body pt-0">
+             
+             <form method="POST" enctype="multipart/form-data" id="elibraryfileUpload">
+             <!--  <div class="mb-3 mt-3" id="inputForFolder" style="display: none;">
+                 <label for="uploadeLibraryfile" class="form-label">Folder name:</label>
+                 <input type="text" class="form-control" id="uploadeLibraryfolder" placeholder="Upload folder for eLibrary" name="uploadeLibraryfolder">
+               </div>-->
+               <div class="mb-3 mt-3" id="inputForFile">
+                 <label for="uploadeLibraryfile" class="form-label">Choose file:</label>
+                 <input type="file" class="form-control" id="uploadeLibraryfile" placeholder="Upload file for eLibrary" name="files" accept="application/pdf">
+               </div>
+               <div class="mb-3 mt-3">
+                <label for="addBasePath" class="form-label">Theme:</label>
+                <select id="addBasePath" class="form-control form-select" required>
+                  <option>--Select Theme--</option>
+                  <option>/okm:root/</option>                  
+                </select>
+                </div>
+                <div class="mb-3 mt-3">
+                  <label for="addVillagePath" class="form-label">Village:</label>
+                  <select id="addVillagePath" class="form-control form-select" required>
+                    <option>--Select Village Name--</option>
+                    <option>Village-1</option>                  
+                  </select>
+                  </div>
+             <!--   <div class="mb-3 mt-3">
+                 <label for="pwd" class="form-label">Path:</label>
+                 <textarea row="4" class="form-control" id="descriptionForfile" name="descriptionForfile"></textarea>
+               </div>-->
+              <div class="text-center w-100">
+               <button type="button" class="btn btn-primary" onClick="createFileOrFolder();">Submit</button>
+              </div>
+             </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="documentDetails">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Document Properties</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <!-- Modal body -->
+        <div class="modal-body p-2">
+          <div class="card mb-0">            
+            <div class="card-body">  
+              <table class="table table-bordered table-striped" id="documentProps">
+               <thead class="border-1">
+                  <tr>
+                    <th class="card-title" style="border: 1px solid #dedede;"></th>
+                    <th class="card-title" style="border: 1px solid #dedede;;"></th>
+                  </tr>
+                </thead>
+               <tbody >
+                 <tr>
+                   <td></td>
+                   <td></td>
+                 </tr>           
+             </tbody>
+             </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<!--modal for alert-->
+  <div class="modal" id="myModal">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+  
+        <!-- Modal body -->
+        <div class="modal-body p-2">
+          <div class="text-center display-5 mb-3 texticon">
+            
+           </div>
+           <p class="mb-0 font-weight-light customtext text-center w-100"></p>
+        </div>
+  
+        <!-- Modal footer -->
+        <div class="modal-footer p-1 justify-content-center">
+          <button type="button" class="btn btn-primary btnclear" data-bs-dismiss="modal">OK</button>
+        </div>
+  
+      </div>
+    </div>
+       </div>
+
+       <div class="modal" id="myModal">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+  
+        <!-- Modal body -->
+        <div class="modal-body p-2">
+          <div class="text-center display-5 mb-3 texticon">
+            
+           </div>
+           <p class="mb-0 font-weight-light customtext text-center w-100"></p>
+        </div>
+  
+        <!-- Modal footer -->
+        <div class="modal-footer p-1 justify-content-center">
+          <button type="button" class="btn btn-primary btnclear" data-bs-dismiss="modal">OK</button>
+        </div>
+  
+      </div>
+    </div>
+       </div>
+  <!-- Vendor JS Files -->
+  <script src="../assets/js/jquery-3.4.1.min.js"></script>
+  <script src="../assets/vendor/apexcharts/apexcharts.min.js"></script>
+  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/vendor/chart.js/chart.min.js"></script>
+  <script src="../assets/vendor/echarts/echarts.min.js"></script>
+  <script src="../assets/vendor/quill/quill.min.js"></script>
+  <script src="../assets/vendor/simple-datatables/simple-datatables.js"></script>
+  <script src="../assets/vendor/tinymce/tinymce.min.js"></script>  
+  <script src="../assets/js/datatables.min.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="../assets/js/main.js"></script>
+<script src="../assets/js/common.js"></script>
+<script>
+    var folderORFile ='file';  
+    var renamefolderORFile ='file';  
+    var deletefolderORFile ='file'; 
+    
+    $(document).ready(function () {
+        $.ajax({
+              type: "Get",
+              url: "http://14.142.106.205:8889/document/getAll",
+             // url: "http://localhost:8080/document/getAll",
+              data: {},
+              async: true,
+              success: function (response) {         
+                  if (response != null && response != '') {
+                      console.log(response);                        
+                      var table = $('#documentList').DataTable( {
+                          data: response,
+                          columns: [
+                                { data: 'nbs_name',
+                                      render: function ( data, type, row, meta ) {                           
+                                      //return "<a href='#'>"+data+"</a>";
+                                      return "<a href=javascript:viewDocument('"+row.nbs_uuid+"','"+row.nbs_name+"')>"+data+"</a>";
+                                    }
+                                },
+                                { data: 'nbs_view',
+                                      render: function ( data, type, row, meta ) {                           
+                                      return "<a href=javascript:openDocument('"+row.nbs_uuid+"')><i class='bi bi-eye fs-5'></i></a>";
+                                    }
+                                },
+                                { data: 'Download',
+                                    render: function ( data, type, row, meta ) {
+                                      return "<a href=javascript:downloadDocument('"+row.nbs_uuid+"','"+row.nbs_name+"')><i class='bi bi-download fs-5'></i></a>";
+                                  } 
+                                }                                 
+                            ]
+                        });
+                      }			
+                  },
+                  error: function (xhr, status, error) {                    
+                       var msg = "Unable to load document details";
+                       $("#myModal").modal("show");
+                       $(".customtext").text(msg);
+			                 $( ".texticon" ).append( '<i class="alerticon bi bi-shield-fill-x text-danger"></i>' );
+                       return false;
+                  },
+                  failure: function (xhr, status, failure) {
+                      var msg = "Unable to load document details";
+                       $("#myModal").modal("show");
+                       $(".customtext").text(msg);
+			                 $( ".texticon" ).append( '<i class="alerticon bi bi-shield-lock-fill text-warning"></i>' );
+                      return false;
+                  }
+              });
+
+        $("#myModal").modal({backdrop: "static"});
+        $("#renameFileorFolder").modal({backdrop: "static"});
+        $("#addFileorFolder").modal({backdrop: "static"});
+        $("#deleteFileorFolder").modal({backdrop: "static"});
+        $(".btnclear").click(function(){
+              $( ".alerticon" ).remove();
+          });
+        $('input[type=radio][name=fileORfolder]').change(function() {
+            if (this.value == 'file') { 
+                folderORFile ='file';
+                $("#inputForFolder").hide();
+                $("#inputForFile").show();
+            }
+            else if (this.value == 'folder') {        
+                folderORFile ='folder';
+                $("#inputForFolder").show();
+                $("#inputForFile").hide();
+            }
+        });        
+    
+        $('input[type=radio][name=refileORfolder]').change(function() {
+            if (this.value == 'renamefile') { 
+                renamefolderORFile ='file';
+              }
+              else if (this.value == 'renamefolder') {        
+                  renamefolderORFile ='folder';                  
+              }
+        });
+        $('input[type=radio][name=defileORfolder]').change(function() {
+              if (this.value == 'deletefile') { 
+                deletefolderORFile ='file';                  
+              }
+              else if (this.value == 'deletefolder') {        
+                deletefolderORFile ='folder';                  
+              }
+        });
+});  
+
+function viewDocument(uuid, filename){
+
+  var fileTypes = filename.split('.');
+  $.ajax({
+        type: "Get",
+        url: "http://14.142.106.205:8889/document/getContent",
+        //url: "http://localhost:8080/document/getContent",
+        data: {docId : uuid},
+        async: true,
+        dataType: "json",       
+        success: function (response) {         
+            if (response != null && response != '') {                
+                  var atobData = atob(response);
+                  var num = new Array(atobData.length);
+                  for (var i = 0; i < atobData.length; i++) {
+                      num[i] = atobData.charCodeAt(i);
+                  }
+                  var pdfData = new Uint8Array(num);
+                  blob = new Blob([pdfData], { type: 'application/pdf;base64' });
+                  var url = URL.createObjectURL(blob); 
+                  window.open(url,"_self");                  
+            }                                	
+        },
+        error: function (xhr, status, error) {         
+            var msg = "Unable to download pdf files";
+            $("#myModal").modal("show");
+            $(".customtext").text(msg);
+            $( ".texticon" ).append( '<i class="alerticon bi bi-shield-fill-x text-danger"></i>' );
+            return false;
+        },
+        failure: function (xhr, status, failure) {
+            var msg = "Unable to download pdf files";
+            $("#myModal").modal("failure");
+            $(".customtext").text(msg);
+            $( ".texticon" ).append( '<i class="alerticon bi bi-shield-lock-fill text-warning"></i>' );
+            return false;
+        }
+    });
+}
+function downloadDocument(uuid, filename){
+
+  var fileTypes = filename.split('.');
+  $.ajax({
+        type: "Get",
+        url: "http://14.142.106.205:8889/document/getContent",
+        //url: "http://localhost:8082/document/getContent",
+        data: {docId : uuid},
+        async: true,
+        dataType: "json",       
+        success: function (response) {         
+            if (response != null && response != '') {
+                var blob1 = atob(response);
+                console.log(blob1);                
+                let bytes = new Uint8Array(blob1.length);
+                for (let i = 0; i < bytes.length; i++) {
+                    bytes[i] = blob1.charCodeAt(i);
+                }                
+                if (fileTypes[1] != null && fileTypes[1] != '' && fileTypes[1] != 'null'){
+                    var blob;
+                    if(fileTypes[1] =='pdf' ){
+                        blob=new Blob([bytes], {type: "application/pdf"});// change resultByte to bytes                
+                    }                    
+                    else{
+                    //  alert('Please download only pdf files');
+                       msg = "Please download only pdf files";
+                       $("#myModal").modal("show");
+                       $(".customtext").text(msg);
+			                 $( ".texticon" ).append( '<i class="alerticon bi bi-shield-lock-fill text-warning"></i>' );
+                      return false;
+                    }
+                    var link=document.createElement('a');
+                    link.href=window.URL.createObjectURL(blob);
+                    link.download=filename;
+                    link.click();
+                }
+            }                    	
+        },
+        error: function (xhr, status, error) {         
+            var msg = "Unable to download pdf files";
+            $("#myModal").modal("show");
+            $(".customtext").text(msg);
+            $( ".texticon" ).append( '<i class="alerticon bi bi-shield-fill-x text-danger"></i>' );
+            return false;
+        },
+        failure: function (xhr, status, failure) {
+            var msg = "Unable to download pdf files";
+            $("#myModal").modal("failure");
+            $(".customtext").text(msg);
+            $( ".texticon" ).append( '<i class="alerticon bi bi-shield-lock-fill text-warning"></i>' );
+            return false;
+        }
+    });
+}
+function openDocument(uuid){
+    $.ajax({
+            type: "Get",
+            url: "http://14.142.106.205:8889/document/getProperties",
+          //  url: "http://localhost:8080/document/getProperties",
+            data: {docId : uuid},
+            async: true,
+            success: function (response) {         
+                if (response != null && response != '') {                    
+                      var otable = $("#documentProps").dataTable();
+                      otable.fnClearTable();
+                      $.each(response, function(key, value) {
+                        otable.dataTable().fnAddData([
+                          key,
+                          value
+                        ]);
+                      });
+                      $("#documentDetails").modal({backdrop: "static"});
+                      $("#documentDetails").modal("show");                      
+                }                    	
+            },
+            error: function (xhr, status, error) {              
+                var msg = "Unable to open properties information";
+                $("#myModal").modal("show");
+                $(".customtext").text(msg);
+                $( ".texticon" ).append( '<i class="alerticon bi bi-shield-fill-x text-danger"></i>' );
+                return false;
+            },
+            failure: function (xhr, status, failure) {              
+                var msg = "Unable to open properties information";
+                $("#myModal").modal("show");
+                $(".customtext").text(msg);
+                $( ".texticon" ).append( '<i class="alerticon bi bi-shield-lock-fill text-warning"></i>' );
+                return false;
+            }
+        });
+  }
+function createFileOrFolder(){
+
+    var documentForm = $('#elibraryfileUpload')[0];
+    var fileName = $('#uploadeLibraryfile').val();
+    var fileTypes = fileName.split('.');
+    var docPath = $('#descriptionForfile').val();  
+    var basePath = $( "#addBasePath option:selected" ).text(); 
+    if ((basePath == null || basePath == '' || basePath == '--Select base path--' || basePath == 'undefined')) {
+          msg = "Please select base path";
+          $("#myModal").modal("show");
+          $(".customtext").text(msg);
+          $( ".texticon" ).append( '<i class="alerticon bi bi-shield-fill-exclamation text-warning"></i>' );
+          $("#addBasePath").focus();
+          return false;
+    }
+    if(folderORFile !='undefined' && folderORFile != undefined && folderORFile != ''){
+      if(folderORFile =='file'){        
+        if(docPath ==""){
+            msg = "Please enter document path to create";
+            $("#myModal").modal("show");
+            $(".customtext").text(msg);
+			      $( ".texticon" ).append( '<i class="alerticon bi bi-shield-fill-exclamation text-warning"></i>' );
+            $("#descriptionForfile").focus();
+            return false;
+        }
+        
+          if (fileTypes[1] != null && fileTypes[1] != '' && fileTypes[1] != 'null'){//Document create scenario
+            if(fileTypes[1] =='pdf'){
+                var documentData = new FormData(documentForm);
+                docPath=basePath+''+docPath;
+                alert(docPath);
+                documentData.append("docPath",docPath);
+                $.ajax({
+                  type: "POST",
+                  enctype: 'multipart/form-data',                  
+                  url: "http://14.142.106.205:8889/document/create",
+                   //url: "http://localhost:8080/document/create",
+                  data: documentData,
+                  processData: false, //prevent jQuery from automatically transforming the data into a query string
+                  contentType: false,
+                  cache: false,
+                  timeout: 600000,
+                    success: function (response) {                     
+                            var msg = "File uploaded successfully";
+                            $("#myModal").modal("show");
+                            $(".customtext").text(msg);
+                            $( ".texticon" ).append( '<i class="alerticon bi bi-shield-fill-check text-succes"></i>' );                                               
+                            $('#descriptionForfile').val('');
+                            $('#addBasePath').val('');
+                            $('#uploadeLibraryfile').val('');                        
+                        },
+                        error: function (xhr, status, error) {            
+                            var msg = "Unable to create document";
+                            $("#myModal").modal("show");
+                            $(".customtext").text(msg);
+                            $( ".texticon" ).append( '<i class="alerticon bi bi-shield-fill-exclamation text-danger"></i>' );
+                            return false;         
+                        }          
+                  });
+                }
+                else{
+                  var msg = 'Please upload only pdf file';
+                  $("#myModal").modal("show");
+                  $(".customtext").text(msg);
+                  $( ".texticon" ).append( '<i class="alerticon bi bi-shield-fill-exclamation text-warning"></i>' );
+                  return false;
+                }
+              }
+          }         
+      else{// Folder create Scenario
+        if(docPath ==""){
+          msg = "Please enter folder path to create";
+          $("#myModal").modal("show");
+          $(".customtext").text(msg);
+          $( ".texticon" ).append( '<i class="alerticon bi bi-shield-fill-exclamation text-warning"></i>' );
+          return false;
+        }
+        docPath=basePath+''+docPath;
+          var folderMsg = $('#uploadeLibraryfolder').val();  
+          $.ajax({
+              type: "POST",
+              url: "http://14.142.106.205:8889/folder/create",                
+             // url: "http://localhost:8080/folder/create",                
+              data: { path: docPath, remarks: folderMsg },
+              async: false,
+              success: function (response) {                     
+                      //console.log(response);  
+                      var msg = "Folder is created successfully";
+                      $("#myModal").modal("show");
+                      $(".customtext").text(msg);
+                      $( ".texticon" ).append( '<i class="alerticon bi bi-shield-fill-check text-succes"></i>' );                                              
+                      $('#descriptionForfile').val('');
+                      $('#addBasePath').val('');
+                      $('#uploadeLibraryfolder').val('');                                            
+                  },
+                  error: function (xhr, status, error) {                     
+                      var msg = "Unable to create folder";
+                      $("#myModal").modal("show");
+                      $(".customtext").text(msg);
+                      $( ".texticon" ).append( '<i class="alerticon bi bi-shield-fill-exclamation text-danger"></i>' );
+                      return false;         
+                  }          
+            });
+        }
+    }
+}
+function renameFolderOrDocument(){
+
+  var path = $('#renamefoldername').val();  
+  var newName = $('#newname').val();   
+  if(renamefolderORFile !='undefined' && renamefolderORFile != undefined && renamefolderORFile != ''){
+    if(renamefolderORFile =='file'){
+      if(path ==""){      
+          msg = "Please enter document path to rename";
+          $("#myModal").modal("show");
+          $(".customtext").text(msg);
+          $( ".texticon" ).append( '<i class="alerticon bi bi-shield-fill-exclamation text-warning"></i>' );
+        return false;
+      }
+      if(newName ==""){      
+          msg = "Please enter document new name";
+          $("#myModal").modal("show");
+          $(".customtext").text(msg);
+          $( ".texticon" ).append( '<i class="alerticon bi bi-shield-fill-exclamation text-warning"></i>' );
+        return false;
+      }
+      
+        $.ajax({
+          type: "PUT",
+          url: "http://14.142.106.205:8889/document/rename?"+ $.param({"docId": path,"newName": newName}),                                    
+        // url: "http://localhost:8080/document/rename?"+ $.param({"docId": path,"newName": newName}),                                    
+          async: false,
+          success: function (response) {                                             
+              //console.log(response);  
+              var msg = "Renamed successfully";
+              $("#myModal").modal("show");
+              $(".customtext").text(msg);
+              $( ".texticon" ).append( '<i class="alerticon bi bi-shield-fill-check text-succes"></i>' );  
+              return false;                      
+          },
+          error: function (xhr, status, error) {
+                var msg ="Unable to rename document";
+                $("#myModal").modal("show");
+                $(".customtext").text(msg);
+                $( ".texticon" ).append( '<i class="alerticon bi bi-shield-fill-exclamation text-danger"></i>' );
+                return false;
+              },
+          failure: function (xhr, status, failure) {            
+                var msg ="Unable to rename document";
+                $("#myModal").modal("show");
+                $(".customtext").text(msg);
+                $( ".texticon" ).append( '<i class="alerticon bi bi-shield-fill-exclamation text-warning"></i>' );
+                return false;
+              }
+          });
+    }
+    else{
+      if(path ==""){       
+          msg = "Please enter folder path to rename";
+          $("#myModal").modal("show");
+          $(".customtext").text(msg);
+          $( ".texticon" ).append( '<i class="alerticon bi bi-shield-fill-exclamation text-warning"></i>' );
+          return false;
+      }
+      if(newName ==""){       
+          msg = "Please enter folder new name";
+          $("#myModal").modal("show");
+          $(".customtext").text(msg);
+          $( ".texticon" ).append( '<i class="alerticon bi bi-shield-fill-exclamation text-warning"></i>' );
+          return false;
+      }
+      $.ajax({
+          type: "PUT",
+          url: "http://14.142.106.205:8889/folder/rename?"+ $.param({"fldId": path,"newName": newName }),                                    
+         //url: "http://localhost:8080/folder/rename?"+ $.param({"fldId": path,"newName": newName }),                                    
+          async: false,
+          success: function (response) { 
+             //console.log(response);     
+             var msg = "Renamed successfully";
+              $("#myModal").modal("show");
+              $(".customtext").text(msg);
+              $( ".texticon" ).append( '<i class="alerticon bi bi-shield-fill-check text-succes"></i>' );                    
+              return false;
+          },
+          error: function (xhr, status, error) {          
+              var msg ="Unable to rename folder";
+              $("#myModal").modal("show");
+              $(".customtext").text(msg);
+              $( ".texticon" ).append( '<i class="alerticon bi bi-shield-fill-exclamation text-danger"></i>' );
+              return false;
+          },
+          failure: function (xhr, status, failure) {
+              var msg ="Unable to rename folder";
+                $("#myModal").modal("show");
+                $(".customtext").text(msg);
+                $( ".texticon" ).append( '<i class="alerticon bi bi-shield-fill-exclamation text-warning"></i>' );
+                return false;
+              }
+          });
+      }
+  }
+}
+function deleteFolderOrDocument(){
+  var path = $('#inputDeleteFileorFolder').val(); 
+  var basePath = $( "#deleteBasePath option:selected" ).text(); 
+  if ((basePath == null || basePath == '' || basePath == '--Select base path--' || basePath == 'undefined')) {
+        msg = "Please select base path";
+        $("#myModal").modal("show");
+        $(".customtext").text(msg);
+        $( ".texticon" ).append( '<i class="alerticon bi bi-shield-fill-exclamation text-warning"></i>' );
+        $("#deleteBasePath").focus();
+        return false;
+  } 
+  if(deletefolderORFile !='undefined' && deletefolderORFile != undefined && deletefolderORFile != ''){
+    if(deletefolderORFile =='file'){
+      if(path ==""){      
+          msg = "Please enter document path to delete";
+          $("#myModal").modal("show");
+          $(".customtext").text(msg);
+          $( ".texticon" ).append( '<i class="alerticon bi bi-shield-fill-exclamation text-warning"></i>' );
+          return false;
+      }
+      path=basePath+path;
+      alert(path);
+      $.ajax({
+					type: "Delete",				
+          url: "http://14.142.106.205:8889/document/delete?"+ $.param({"docId": path}),				
+         // url: "http://localhost:8080/document/delete?"+ $.param({"docId": path}),				
+					async: false,
+					success: function (response) {                         
+            //console.log(response);  
+            var msg = "Deleted the file successfully";
+            $("#myModal").modal("show");
+            $(".customtext").text(msg);
+            $( ".texticon" ).append( '<i class="alerticon bi bi-shield-fill-check text-succes"></i>' );                       
+            $('#inputDeleteFileorFolder').val('');
+            $("#deleteBasePath").val('');
+					},
+					error: function (xhr, status, error) {					
+            var msg = "Unable to delete document";
+            $("#myModal").modal("show");
+            $(".customtext").text(msg);
+            $( ".texticon" ).append( '<i class="alerticon bi bi-shield-fill-exclamation text-warning"></i>' );		
+						return false;
+					},
+					failure: function (xhr, status, failure) {
+            var msg = "Unable to delete document";
+            $("#myModal").modal("show");
+            $(".customtext").text(msg);
+            $( ".texticon" ).append( '<i class="alerticon bi bi-shield-fill-exclamation text-warning"></i>' );		
+						return false;
+					}
+				});
+    }
+    else{
+      if(path ==""){      
+          msg = "Please enter folder path to delete";
+          $("#myModal").modal("show");
+          $(".customtext").text(msg);
+          $( ".texticon" ).append( '<i class="alerticon bi bi-shield-fill-exclamation text-warning"></i>' );		
+          return false;
+      }
+      path=basePath+path;
+      alert(path);
+      $.ajax({
+					type: "Delete",				
+          url: "http://14.142.106.205:8889/folder/delete?"+ $.param({"fldId": path}),				
+         // url: "http://localhost:8080/folder/delete?"+ $.param({"fldId": path}),				
+					async: false,
+					success: function (response) {                         
+             //console.log(response); 
+             var msg = "Deleted the folder successfully";
+              $("#myModal").modal("show");
+              $(".customtext").text(msg);
+              $( ".texticon" ).append( '<i class="alerticon bi bi-shield-fill-check text-succes"></i>' );                       
+              $('#inputDeleteFileorFolder').val('');
+              $("#deleteBasePath").val('');
+					},
+					error: function (xhr, status, error) {
+            var msg = "Unable to delete folder";
+            $("#myModal").modal("show");
+            $(".customtext").text(msg);
+            $( ".texticon" ).append( '<i class="alerticon bi bi-shield-fill-exclamation text-warning"></i>' );				
+						return false;
+					},
+					failure: function (xhr, status, failure) {					
+            var msg = "Unable to delete folder";
+            $("#myModal").modal("show");
+            $(".customtext").text(msg);
+            $( ".texticon" ).append( '<i class="alerticon bi bi-shield-fill-exclamation text-warning"></i>' );		
+            return false;
+					}
+				});
+    }
+  }
+}
+</script>
+</body>
+
+</html>

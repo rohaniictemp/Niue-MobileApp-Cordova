@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>NIUE Geoportal</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="../assets/img/favicon.png" rel="icon">
+  <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="../assets/vendor/quill/quill.snow.css" rel="stylesheet">
+  <link href="../assets/vendor/quill/quill.bubble.css" rel="stylesheet">
+  <link href="../assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="../assets/vendor/simple-datatables/style.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="../assets/css/style.css" rel="stylesheet">
+  <style>
+    #vtabs> .nav{
+      list-style: disc;
+      list-style-position: inside;
+      padding: 10px;
+      display: flex;
+    }
+    #vtabs> .nav> li> .nav-link{
+      display: initial;
+      padding:0.5rem;
+      text-align: left;
+    }
+    .fullscreenbtnkiosk{
+      background-color: transparent; color: #fff; font-size: 27px; position: absolute; bottom: -3px; right:18px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div>
+    <div class="container bg-white">
+<!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top d-flex align-items-center">
+
+    <nav class="navbar navbar-dark navbar-expand-md w-100 bg-niueblue fixed-top d-flex align-items-center">
+      <div class="container-fluid">
+        <a href="../index.html" class="logo d-flex align-items-center">
+          <img src="../assets/img/logo.png" alt="" class="bg-white me-3" style="border-radius: 4px;"/>
+          <span class="d-none d-lg-block">NIUE Geoportal</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse header-nav" id="mynavbar">
+          <ul class="navbar-nav justify-content-end w-100">
+         <li class="nav-item">
+          <a class="nav-link nav-icon scrollto active" href="../index.html">
+            <span class="me-1"><i class="bi bi-house-door"></i></span>
+            <span class="ps-1">Home</span>
+          </a><!-- End map Icon -->
+        </li>
+		<li class="nav-item">
+          <a class="nav-link nav-icon scrollto" href="preloginsearch.html">
+            <span class="me-1"><i class="bi bi-search"></i></span>
+            <span class="ps-1">Search</span>
+          </a><!-- End map Icon -->
+        </li>
+		<li class="nav-item">
+          <a class="nav-link nav-icon" href="../map.html">
+            <span class="me-1"><i class="bi bi-globe2"></i></span>
+            <span class="ps-1">Map</span>
+          </a><!-- End map Icon -->
+        </li>
+		<li class="nav-item">
+          <a class="nav-link nav-icon" href="../index.html#about">
+            <span class="me-1"><i class="bi bi-info-circle"></i></span>
+            <span class="ps-1">About</span>
+          </a><!-- End map Icon -->
+        </li>
+        <li class="nav-item">
+          <a class="nav-link nav-icon" href="loginpage.html">
+            <span class="me-1"><i class="bi bi-box-arrow-in-left"></i></span>
+            <span class="ps-1">Login</span>
+          </a><!-- End map Icon -->
+        </li>
+       
+
+      </ul>
+      </div>
+      </div>
+    </nav><!-- End Icons Navigation -->
+
+  </header><!-- End Header -->
+ 
+      <section class="section register d-flex flex-column" style="margin-top: 70px;">
+        <div class="row">
+          <div class="pagetitle mt-2">
+           <h1>Village Information</h1>
+            <nav>
+              <ol class="breadcrumb mb-0">
+                <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+                <li class="breadcrumb-item active"><a href="#">Village Information</a></li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+        <div class="row">
+         <div class="col-12 col-sm-12">
+           <div style="display: block; width: 100%; height: 250px; background: url(../assets/img/13-villageinfo.jpg) no-repeat 0 35% /cover; overflow: hidden;">
+          &nbsp;
+          </div>
+         </div>
+        </div>
+      
+          <div class="row">
+            <div class="col-lg-12 col-md-12">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Village List</h5>
+    
+                  <!-- Vertical Pills Tabs -->
+                  <div class="d-flex align-items-start" id="vtabs">
+                    <ul class="list-group nav flex-column nav-pills me-3 w-25 shadow" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                     <li><button class="nav-link active" id="v-pills-AlofiTokelau-tab" data-bs-toggle="pill" data-bs-target="#v-pills-AlofiTokelau" type="button" role="tab" aria-controls="v-pills-AlofiTokelau" aria-selected="true">Alofi Tokelau (Alofi North)</button></li>
+                      <li><button class="nav-link" id="v-pills-Makefu-tab" data-bs-toggle="pill" data-bs-target="#v-pills-Makefu" type="button" role="tab" aria-controls="v-pills-Makefu" aria-selected="false">Makefu</button></li>
+                      <li><button class="nav-link" id="v-pills-Tuapa-tab" data-bs-toggle="pill" data-bs-target="#v-pills-Tuapa" type="button" role="tab" aria-controls="v-pills-Tuapa" aria-selected="false">Tuapa</button></li>
+                      <li><button class="nav-link" id="v-pills-Namukulu-tab" data-bs-toggle="pill" data-bs-target="#v-pills-Namukulu" type="button" role="tab" aria-controls="v-pills-Namukulu" aria-selected="false">Namukulu</button></li>
+                      <li><button class="nav-link" id="v-pills-Hikutavake-tab" data-bs-toggle="pill" data-bs-target="#v-pills-Hikutavake" type="button" role="tab" aria-controls="v-pills-Hikutavake" aria-selected="false">Hikutavake</button></li>
+                      <li><button class="nav-link" id="v-pills-Toi-tab" data-bs-toggle="pill" data-bs-target="#v-pills-Toi" type="button" role="tab" aria-controls="v-pills-Toi" aria-selected="false">Toi</button></li>
+                      <li><button class="nav-link" id="v-pills-Mutalau-tab" data-bs-toggle="pill" data-bs-target="#v-pills-Mutalau" type="button" role="tab" aria-controls="v-pills-Mutalau" aria-selected="false">Mutalau</button></li>
+                      <li><button class="nav-link" id="v-pills-Lakepa-tab" data-bs-toggle="pill" data-bs-target="#v-pills-Lakepa" type="button" role="tab" aria-controls="v-pills-Lakepa" aria-selected="false">Lakepa</button></li>
+                      <li><button class="nav-link" id="v-pills-Liku-tab" data-bs-toggle="pill" data-bs-target="#v-pills-Liku" type="button" role="tab" aria-controls="v-pills-Liku" aria-selected="false">Liku</button></li>
+                      <li><button class="nav-link" id="v-pills-Hakupu-tab" data-bs-toggle="pill" data-bs-target="#v-pills-Hakupu" type="button" role="tab" aria-controls="v-pills-Hakupu" aria-selected="false">Hakupu</button></li>
+                      <li><button class="nav-link" id="v-pills-Vaiea-tab" data-bs-toggle="pill" data-bs-target="#v-pills-Vaiea" type="button" role="tab" aria-controls="v-pills-Vaiea" aria-selected="false">Vaiea</button></li>
+                      <li><button class="nav-link" id="v-pills-Avatele-tab" data-bs-toggle="pill" data-bs-target="#v-pills-Avatele" type="button" role="tab" aria-controls="v-pills-Avatele" aria-selected="false">Avatele</button></li>
+                      <li><button class="nav-link" id="v-pills-Tamakautoga-tab" data-bs-toggle="pill" data-bs-target="#v-pills-Tamakautoga" type="button" role="tab" aria-controls="v-pills-Tamakautoga" aria-selected="false">Tamakautoga</button></li>
+                      <li><button class="nav-link" id="v-pills-AlofiToga-tab" data-bs-toggle="pill" data-bs-target="#v-pills-AlofiToga" type="button" role="tab" aria-controls="v-pills-AlofiToga" aria-selected="false">Alofi Toga (Alofi South)</button></li>
+                    </ul>
+                    <div class="tab-content w-75" id="v-pills-tabContent">
+                      <div class="tab-pane fade show active" id="v-pills-AlofiTokelau" role="tabpanel" aria-labelledby="v-pills-AlofiTokelau-tab">
+                        <div class="row">
+                          <div class="col-12 col-sm-12">
+                            <div class="card">
+                              <div class="row">
+                                  <div class="col-sm-4">
+                                    <img src="../assets/img/villages/01-v-Alofi.jpg" class="img-fluid h-100"/>
+                                  </div>
+                                  <div class="col-sm-8">
+                                    <div class="card-body">
+                                      <h5 class="card-title">Alofi Tokelau (Alofi North)</h5>
+                                      <p class="card-text">
+                                        Alofi is the capital of the Pacific Ocean island nation of Niue. With a population of 597 in 2017,
+                                         Alofi has the distinction of being the second smallest national capital city in terms of population (after Ngerulmud, capital of Palau). 
+                                        It consists of the two villages: Alofi North and Alofi South where the government headquarters are located.
+                                      </p> 
+                                    </div>
+                                  </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-12 col-sm-6"> 
+                            <div class="card">                         
+                             <iframe class="yt_player_iframe" width="100%" height="315" src="https://www.youtube.com/embed/iiC76b8soeI?enablejsapi=1&version=3&playerapiid=ytplayer" title="YouTube video player" frameborder="0" allowscriptaccess="always" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+                             <a href="https://www.youtube.com/embed/iiC76b8soeI" target="_blank" class="fullscreenbtnkiosk"><i class="bx bx-fullscreen"></i></a>
+                            </div>
+                         
+                          </div>
+                          <div class="col-12 col-sm-6">
+                            <div class="card">                             
+                              <iframe class="yt_player_iframe" width="100%" height="315" src="https://www.youtube.com/embed/xRFLS8Bt3mc?enablejsapi=1&version=3&playerapiid=ytplayer&start=185&end=200&" title="YouTube video player" frameborder="0" allowscriptaccess="always" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                              <a href="https://www.youtube.com/embed/xRFLS8Bt3mc?start=185&end=200" target="_blank" class="fullscreenbtnkiosk"><i class="bx bx-fullscreen"></i></a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="tab-pane fade" id="v-pills-Makefu" role="tabpanel" aria-labelledby="v-pills-Makefu-tab">
+                        <div class="row">
+                          <div class="col-12 col-sm-12">
+                            <div class="card">
+                              <div class="row">
+                                  <div class="col-sm-4">
+                                    <img src="../assets/img/villages/02-v-Makefu.jpg" class="img-fluid h-100"/>
+                                  </div>
+                                  <div class="col-sm-8">
+                                    <div class="card-body">
+                                      <h5 class="card-title">Makefu</h5>
+                                    <p class="card-text">
+                                      Makefu is one of the fourteen villages of Niue. Its population at the 2017 census was 70, up from 64 in 2011
+                                    </p> </div>
+                                  </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-12 col-sm-12">
+                            <div class="card">                             
+                              <iframe class="yt_player_iframe" width="100%" height="380" src="https://www.youtube.com/embed/xRFLS8Bt3mc?&enablejsapi=1&version=3&playerapiid=ytplayer&start=76&end=95&" title="YouTube video player" frameborder="0" allowscriptaccess="always" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                              <a href="https://www.youtube.com/embed/xRFLS8Bt3mc?start=76&end=95" target="_blank" class="fullscreenbtnkiosk"><i class="bx bx-fullscreen"></i></a>
+                            </div>
+                          </div>
+                        
+                        </div>
+                      </div>
+                      <div class="tab-pane fade" id="v-pills-Tuapa" role="tabpanel" aria-labelledby="v-pills-Tuapa-tab">
+                         <div class="row">
+                          <div class="col-12 col-sm-12">
+                            <div class="card">
+                              <div class="row">
+                                  <div class="col-sm-4">
+                                    <img src="../assets/img/villages/03-v-Tuapa.jpg" class="img-fluid h-100"/>
+                                  </div>
+                                  <div class="col-sm-8">
+                                    <div class="card-body">
+                                      <h5 class="card-title">Tuapa</h5>
+                                    <p class="card-text">
+                                      Tuapa is one of the fourteen villages of Niue. Its population at the 2017 census was 112, up from 97 in 2011
+                                    </p>
+                                  </div>
+                                  </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-12 col-sm-12">
+                            <div class="card">                             
+                              <iframe class="yt_player_iframe" width="100%" height="380" src="https://www.youtube.com/embed/xRFLS8Bt3mc?enablejsapi=1&version=3&playerapiid=ytplayer&start=24&end=38&" title="YouTube video player" frameborder="0" allowscriptaccess="always" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                              <a href="https://www.youtube.com/embed/xRFLS8Bt3mc?start=24&end=38" target="_blank" class="fullscreenbtnkiosk"><i class="bx bx-fullscreen"></i></a>
+                            </div>
+                          </div>
+                        
+                        </div>
+                      </div>
+                      <div class="tab-pane fade" id="v-pills-Namukulu" role="tabpanel" aria-labelledby="v-pills-Namukulu-tab">
+                         <div class="row">
+                          <div class="col-12 col-sm-12">
+                            <div class="card">
+                              <div class="row">
+                                  <div class="col-sm-4">
+                                    <img src="../assets/img/villages/04-v-Namukulu.jpg" class="img-fluid h-100"/>
+                                  </div>
+                                  <div class="col-sm-8">
+                                    <div class="card-body">
+                                      <h5 class="card-title">Namukulu</h5>
+                                    <p class="card-text">
+                                      Namukulu is one of the fourteen villages of Niue. With a population of 11 (2017 census), it is the smallest village on the island.
+                                    </p> </div>
+                                  </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-12 col-sm-6">
+                            <div class="card">                              
+                            <iframe class="yt_player_iframe" width="100%" height="315" src="https://www.youtube.com/embed/NgWsayUBWQ8?enablejsapi=1&version=3&playerapiid=ytplayer" title="YouTube video player" frameborder="0" allowscriptaccess="always" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <a href="https://www.youtube.com/embed/NgWsayUBWQ8" target="_blank" class="fullscreenbtnkiosk"><i class="bx bx-fullscreen"></i></a> 
+                          </div>
+                          </div>
+                          <div class="col-12 col-sm-6">
+                            <div class="card">                             
+                              <iframe class="yt_player_iframe" width="100%" height="315" src="https://www.youtube.com/embed/xRFLS8Bt3mc?enablejsapi=1&version=3&playerapiid=ytplayer&start=152&end=162&" title="YouTube video player" frameborder="0" allowscriptaccess="always" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                              <a href="https://www.youtube.com/embed/xRFLS8Bt3mc?start=152&end=162" target="_blank" class="fullscreenbtnkiosk"><i class="bx bx-fullscreen"></i></a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="tab-pane fade" id="v-pills-Hikutavake" role="tabpanel" aria-labelledby="v-pills-Hikutavake-tab">
+                         <div class="row">
+                          <div class="col-12 col-sm-12">
+                            <div class="card">
+                              <div class="row">
+                                  <div class="col-sm-4">
+                                    <img src="../assets/img/villages/05-v-Hikutavake.jpg" class="img-fluid h-100"/>
+                                  </div>
+                                  <div class="col-sm-8">
+                                    <div class="card-body">
+                                      <h5 class="card-title">Hikutavake</h5>
+                                    <p class="card-text">
+                                      Hikutavake is one of the fourteen villages of Niue. Its population at the 2017 census was 49, up from 40 in 2011.
+                                    </p> </div>
+                                  </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-12 col-sm-12">
+                            <div class="card">                             
+                              <iframe class="yt_player_iframe" width="100%" height="380" src="https://www.youtube.com/embed/xRFLS8Bt3mc?enablejsapi=1&version=3&playerapiid=ytplayer&start=38&end=58&" title="YouTube video player" frameborder="0" allowscriptaccess="always" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                              <a href="https://www.youtube.com/embed/xRFLS8Bt3mc?start=38&end=58" target="_blank" class="fullscreenbtnkiosk"><i class="bx bx-fullscreen"></i></a>
+                            </div>
+                          </div>
+                        
+                        </div>
+                      </div>
+                      <div class="tab-pane fade" id="v-pills-Toi" role="tabpanel" aria-labelledby="v-pills-Toi-tab">
+                         <div class="row">
+                          <div class="col-12 col-sm-12">
+                            <div class="card">
+                              <div class="row">
+                                  <div class="col-sm-4">
+                                    <img src="../assets/img/villages/06-v-Toi.png" class="img-fluid h-100"/>
+                                  </div>
+                                  <div class="col-sm-8">
+                                    <div class="card-body">
+                                      <h5 class="card-title">Toi</h5>
+                                    <p class="card-text">
+                                      Toi is one of the fourteen villages of Niue, located north of the island, 17 km from Alofi. Its population at the 2017 census was 22, down from 25 in 2011.
+                                    </p> </div>
+                                  </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-12 col-sm-12">
+                            <div class="card">                             
+                              <iframe class="yt_player_iframe" width="100%" height="315" src="https://www.youtube.com/embed/fEjaeOLHnEU?enablejsapi=1&version=3&playerapiid=ytplayer" title="YouTube video player" frameborder="0" allowscriptaccess="always" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                              <a href="https://www.youtube.com/embed/fEjaeOLHnEU" target="_blank" class="fullscreenbtnkiosk"><i class="bx bx-fullscreen"></i></a>
+                            </div>
+                          </div>
+                         
+                        </div>
+                      </div>
+                      <div class="tab-pane fade" id="v-pills-Mutalau" role="tabpanel" aria-labelledby="v-pills-Mutalau-tab">
+                         <div class="row">
+                          <div class="col-12 col-sm-12">
+                            <div class="card">
+                              <div class="row">
+                                  <div class="col-sm-4">
+                                    <img src="../assets/img/villages/07-v-Mutalau.jpg" class="img-fluid h-100"/>
+                                  </div>
+                                  <div class="col-sm-8">
+                                    <div class="card-body">
+                                      <h5 class="card-title">Mutalau</h5>
+                                    <p class="card-text">
+                                      Mutalau is one of the fourteen villages of Niue. Its population at the 2017 census was 100, up from 97 in 2011
+                                    </p> </div>
+                                  </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-12 col-sm-12">
+                            <div class="card">                             
+                              <iframe class="yt_player_iframe" width="100%" height="380" src="https://www.youtube.com/embed/xRFLS8Bt3mc?enablejsapi=1&version=3&playerapiid=ytplayer&start=97&end=117&" title="YouTube video player" frameborder="0" allowscriptaccess="always" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                              <a href="https://www.youtube.com/embed/xRFLS8Bt3mc?start=97&end=117" target="_blank" class="fullscreenbtnkiosk"><i class="bx bx-fullscreen"></i></a>
+                            </div>
+                          </div>
+                         
+                        </div>
+                      </div>
+                      <div class="tab-pane fade" id="v-pills-Lakepa" role="tabpanel" aria-labelledby="v-pills-Lakepa-tab">
+                         <div class="row">
+                          <div class="col-12 col-sm-12">
+                            <div class="card">
+                              <div class="row">
+                                  <div class="col-sm-4">
+                                    <img src="../assets/img/villages/08-v-Lakepa.jpg" class="img-fluid h-100"/>
+                                  </div>
+                                  <div class="col-sm-8">
+                                    <div class="card-body">
+                                      <h5 class="card-title">Lakepa</h5>
+                                    <p class="card-text">
+                                      Lakepa is one of the fourteen villages of Niue. Its population at the 2017 census was 87, up from 70 in 2011.
+                                    </p> </div>
+                                  </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-12 col-sm-12">
+                            <div class="card">                             
+                              <iframe class="yt_player_iframe" width="100%" height="380" src="https://www.youtube.com/embed/xRFLS8Bt3mc?enablejsapi=1&version=3&playerapiid=ytplayer&start=12&end=24&" title="YouTube video player" frameborder="0" allowscriptaccess="always" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                              <a href="https://www.youtube.com/embed/xRFLS8Bt3mc?start=12&end=24" target="_blank" class="fullscreenbtnkiosk"><i class="bx bx-fullscreen"></i></a>
+                            </div>
+                          </div>
+                         
+                        </div>
+                      </div>
+                      <div class="tab-pane fade" id="v-pills-Liku" role="tabpanel" aria-labelledby="v-pills-Liku-tab">
+                         <div class="row">
+                          <div class="col-12 col-sm-12">
+                            <div class="card">
+                              <div class="row">
+                                  <div class="col-sm-4">
+                                    <img src="../assets/img/villages/09-v-Liku.jpg" class="img-fluid h-100"/>
+                                  </div>
+                                  <div class="col-sm-8">
+                                    <div class="card-body">
+                                      <h5 class="card-title">Liku</h5>
+                                    <p class="card-text">
+                                      Liku is one of the fourteen villages of Niue, located close to the easternmost part of the island. It lies due east of the capital, Alofi, and its population at the 2017 census was 98.
+                                    </p> </div>
+                                  </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-12 col-sm-12">
+                            <div class="card">                             
+                              <iframe class="yt_player_iframe" width="100%" height="380" src="https://www.youtube.com/embed/brgNAvbGHJ8?enablejsapi=1&version=3&playerapiid=ytplayer" title="YouTube video player" frameborder="0" allowscriptaccess="always" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </iframe>
+                            <a href="https://www.youtube.com/embed/brgNAvbGHJ8" target="_blank" class="fullscreenbtnkiosk"><i class="bx bx-fullscreen"></i></a>
+                            </div>
+                          </div>
+                         
+                        </div>
+                      </div>
+                      <div class="tab-pane fade" id="v-pills-Hakupu" role="tabpanel" aria-labelledby="v-pills-Hakupu-tab">
+                         <div class="row">
+                          <div class="col-12 col-sm-12">
+                            <div class="card">
+                              <div class="row">
+                                  <div class="col-sm-4">
+                                    <img src="../assets/img/villages/10-v-Hakupu.jpg" class="img-fluid h-100"/>
+                                  </div>
+                                  <div class="col-sm-8">
+                                    <div class="card-body">
+                                      <h5 class="card-title">Hakupu</h5>
+                                    <p class="card-text">Hakupu is one of the fourteen villages of the island of Niue. According to the 2017 census, it has a population of 220, making it the second-largest village in Niue</p> </div>
+                                  </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-12 col-sm-12">
+                            <div class="card">                             
+                              <iframe class="yt_player_iframe" width="100%" height="380" src="https://www.youtube.com/embed/xRFLS8Bt3mc?enablejsapi=1&version=3&playerapiid=ytplayer&start=60&end=75&" title="YouTube video player" frameborder="0" allowscriptaccess="always" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                              <a href="https://www.youtube.com/embed/xRFLS8Bt3mc?start=60&end=75" target="_blank" class="fullscreenbtnkiosk"><i class="bx bx-fullscreen"></i></a>
+                            </div>
+                          </div>
+                         
+                        </div>
+                      </div>
+                      <div class="tab-pane fade" id="v-pills-Vaiea" role="tabpanel" aria-labelledby="v-pills-Vaiea-tab">
+                         <div class="row">
+                          <div class="col-12 col-sm-12">
+                            <div class="card">
+                              <div class="row">
+                                  <div class="col-sm-4">
+                                    <img src="../assets/img/villages/11-v-Vaiea.jpg" class="img-fluid h-100"/>
+                                  </div>
+                                  <div class="col-sm-8">
+                                    <div class="card-body">
+                                      <h5 class="card-title">Vaiea</h5>
+                                    <p class="card-text">Vaiea is one of the fourteen villages of Niue. Its population was 115 as of 2017.</p> </div>
+                                  </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-12 col-sm-12">
+                            <div class="card">                             
+                              <iframe class="yt_player_iframe" width="100%" height="380" src="https://www.youtube.com/embed/fEjaeOLHnEU?enablejsapi=1&version=3&playerapiid=ytplayer" title="YouTube video player" frameborder="0" allowscriptaccess="always" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                              <a href="https://www.youtube.com/embed/fEjaeOLHnEU" target="_blank" class="fullscreenbtnkiosk"><i class="bx bx-fullscreen"></i></a>
+                            </div>
+                          </div>
+                         
+                        </div>
+                      </div>
+                      <div class="tab-pane fade" id="v-pills-Avatele" role="tabpanel" aria-labelledby="v-pills-Avatele-tab">
+                         <div class="row">
+                          <div class="col-12 col-sm-12">
+                            <div class="card">
+                              <div class="row">
+                                  <div class="col-sm-4">
+                                    <img src="../assets/img/villages/12-v-Avatele.jpg" class="img-fluid h-100"/>
+                                  </div>
+                                  <div class="col-sm-8">
+                                    <div class="card-body">
+                                      <h5 class="card-title">Avatele</h5>
+                                    <p class="card-text">Avatele, formerly known as Oneonepata Matavaihala, is one of the fourteen villages of Niue, located on the southwest coast, with a population of 143 residents as of 2017</p> </div>
+                                  </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-12 col-sm-12">
+                            <div class="card">                             
+                              <iframe class="yt_player_iframe" width="100%" height="380" src="https://www.youtube.com/embed/xRFLS8Bt3mc?enablejsapi=1&version=3&playerapiid=ytplayer&start=175&end=183&" title="YouTube video player" frameborder="0" allowscriptaccess="always" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                              <a href="https://www.youtube.com/embed/xRFLS8Bt3mc?start=175&end=183" target="_blank" class="fullscreenbtnkiosk"><i class="bx bx-fullscreen"></i></a>
+                            </div>
+                          </div>
+                         
+                        </div>
+                      </div>
+                      <div class="tab-pane fade" id="v-pills-Tamakautoga" role="tabpanel" aria-labelledby="v-pills-Tamakautoga-tab">
+                         <div class="row">
+                          <div class="col-12 col-sm-12">
+                            <div class="card">
+                              <div class="row">
+                                  <div class="col-sm-4">
+                                    <img src="../assets/img/villages/13-v-Tamakautoga.jpg" class="img-fluid h-100"/>
+                                  </div>
+                                  <div class="col-sm-8">
+                                    <div class="card-body">
+                                      <h5 class="card-title">Tamakautoga</h5>
+                                    <p class="card-text">
+                                      Tamakautoga is one of the fourteen villages within the Pacific Ocean island nation of Niue. Tamakautoga is located in the southwestern portion of the island and borders the villages of Avatele, Hakupu, and Niue's capital, Alofi, meeting all three at a quadripoint. The village's population at the 2017 census was 160, up from 136 in 2011. This number has fallen significantly from the 19th century which was reported to be 275 in an 1899 mission census. Tamakautoga is represented by Andrew Funaki in the Niue Assembly.
+                                    </p></div>
+                                  </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-12 col-sm-6">
+                            <div class="card">                             
+                              <iframe class="yt_player_iframe" width="100%" height="315" src="https://www.youtube.com/embed/xBo6xEJ2pNU?enablejsapi=1&version=3&playerapiid=ytplayer" title="YouTube video player" frameborder="0" allowscriptaccess="always" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                              <a href="https://www.youtube.com/embed/xBo6xEJ2pNU" target="_blank" class="fullscreenbtnkiosk"><i class="bx bx-fullscreen"></i></a>
+                            </div>
+                          </div>
+                          <div class="col-12 col-sm-6">
+                            <div class="card">                             
+                              <iframe class="yt_player_iframe" width="100%" height="315" src="https://www.youtube.com/embed/xRFLS8Bt3mc?enablejsapi=1&version=3&playerapiid=ytplayer&start=122&end=150&" title="YouTube video player" frameborder="0" allowscriptaccess="always" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                              <a href="https://www.youtube.com/embed/xRFLS8Bt3mc?start=122&end=150" target="_blank" class="fullscreenbtnkiosk"><i class="bx bx-fullscreen"></i></a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="tab-pane fade" id="v-pills-AlofiToga" role="tabpanel" aria-labelledby="v-pills-AlofiToga-tab">
+                         <div class="row">
+                          <div class="col-12 col-sm-12">
+                            <div class="card">
+                              <div class="row">
+                                  <div class="col-sm-4">
+                                    <img src="../assets/img/villages/14-v-alofi.jpg" class="img-fluid h-100"/>
+                                  </div>
+                                  <div class="col-sm-8">
+                                    <div class="card-body">
+                                      <h5 class="card-title">Alofi Toga (Alofi South)</h5>
+                                    <p class="card-text">Alofi is the capital of the Pacific Ocean island nation of Niue. With a population of 597 in 2017, Alofi has the distinction of being the second smallest national capital city in terms of population (after Ngerulmud, capital of Palau). It consists of the two villages: Alofi North and Alofi South where the government headquarters are located.</p> </div>
+                                  </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-12 col-sm-12">
+                            <div class="card">                             
+                              <iframe class="yt_player_iframe" width="100%" height="380" src="https://www.youtube.com/embed/xRFLS8Bt3mc?enablejsapi=1&version=3&playerapiid=ytplayer&start=185&end=200&" title="YouTube video player" frameborder="0" allowscriptaccess="always" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                              <a href="https://www.youtube.com/embed/xRFLS8Bt3mc?start=185&end=200" target="_blank" class="fullscreenbtnkiosk"><i class="bx bx-fullscreen"></i></a>
+                            </div>
+                          </div>
+                         
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- End Vertical Pills Tabs -->
+    
+                </div>
+              </div>
+            </div>    
+          </div>
+      </section>
+    
+  </div>
+  </div><!-- End #main -->
+      <!-- ======= Footer ======= -->
+  <footer class="footer p-2 container-fluid fixed-bottom">
+    <div class="copyright">
+      &copy; Copyright 2021 <a href="../index.html"><strong><span>NIUE Geoportal</span></strong></a><span>. Designed by <a href="https://www.iictechnologies.com/">IIC Technologies.</a></span> All Rights Reserved
+    
+    </div>
+   
+  </footer><!-- End Footer -->      
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center customalert"><i class="bi bi-arrow-up-short"></i></a>
+       
+   
+     
+  <!-- Vendor JS Files -->
+  <script src="../assets/js/jquery-3.4.1.min.js"></script>
+  <script src="../assets/vendor/apexcharts/apexcharts.min.js"></script>
+  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/vendor/chart.js/chart.min.js"></script>
+  <script src="../assets/vendor/echarts/echarts.min.js"></script>
+  <script src="../assets/vendor/quill/quill.min.js"></script>
+  <script src="../assets/vendor/simple-datatables/simple-datatables.js"></script>
+  <script src="../assets/vendor/tinymce/tinymce.min.js"></script>
+
+  <script src="../assets/js/main.js"></script>  
+ <!--<script>
+$(document).ready(function(){
+   // $("button.nav-link").click(function(){
+    //  $('.yt_player_iframe').contentWindow.postMessage('{"event":"command","func":"stopVideo","args":""}', '*');
+   //   $('.yt_player_iframe').contentWindow.postMessage('{"event":"command","func":"' + 'stopVideo' + '","args":""}', '*');
+   // });
+   $("button.nav-link").click(function(){
+    $('.yt_player_iframe').each(function(){
+      this.contentWindow.postMessage('{"event":"command","func":"stopVideo","args":""}', '*')
+     //this.contentWindow.postMessage('{"event":"command","func":"stopVideo"}');
+     //this.contentWindow.postMessage('{"event":"command","func":"' + 'stopVideo' + '","args":""}', '*');
+    });
+  });
+});
+  </script>-->
+</body>
+
+</html>
